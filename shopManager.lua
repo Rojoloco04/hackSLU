@@ -13,4 +13,3 @@ function purchase(item)
 end
 
 return shopManager
-

@@ -10,16 +10,22 @@ taskList = {}
 data = readUserData()
 
 font = nil
+
 function love.load()
     font = love.graphics.newFont(24)
     testTextbox = textbox.create(150,150,1000,16,"TASK")
-    
-    -- test item and purchase
+    anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
+
+    -- testing
     testItem = item.new("book", 10, false, "images/book.png")
     purchase(testItem)
 
-    anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
+    changeName("Jack")
+    print(getName())
+    streakUp()
+    print(getStreak())
 end
+
 function love.update(dt)
 
 end
