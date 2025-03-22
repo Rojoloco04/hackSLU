@@ -11,9 +11,6 @@ function love.load()
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
 
     task1 = Task.new("testing")
-    task2 = Task.new("testing2")
-    task3 = Task.new("testing3")
-    task4 = Task.new("testing4")
     table.insert(taskList, task1)
 
     task1:complete()
