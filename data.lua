@@ -18,17 +18,29 @@ function writeUserData(data)
     return true
 end
 
+-- data constructor
+function startUp()
+    local data = readUserData()
+    data["money"] = data["money"] or 0
+    data["xp"] = data["xp"] or 0
+    data["level"] = data["level"] or 0
+    data["streak"] = data["streak"] or 0
+    data["name"] = data["name"] or ""
+    data["items"] = data["items"] or {}
+    writeUserData(data)
+end
+
 -- money accessor
 function getMoney()
-    data = readUserData()
+    local data = readUserData()
     return data["money"]
 end
 
 -- money mutator
 function updateMoney(mode, amount)
-    data = readUserData()
+    local data = readUserData()
 
-    money = data["money"]
+    local money = data["money"]
     
     if mode == "sub" then
         money = money - amount
@@ -46,64 +58,80 @@ end
 
 -- xp accessor
 function getXP()
-    data = readUserData()
+    local data = readUserData()
     return data["xp"]
 end
 
 -- xp mutator
 function addXP(amount)
-    data = readUserData()
+    local data = readUserData()
     data["xp"] = data["xp"] + amount
     writeUserData(data)
 end
 
 -- level accessor
 function getLevel()
-    data = readUserData()
+    local data = readUserData()
     return data["level"]
 end
 
 -- level mutators
 function levelUp()
-    data = readUserData()
+    local data = readUserData()
     data["level"] = data["level"] + 1
     writeUserData(data)
 end
 
 function resetLevel()
-    data = readUserData()
+    local data = readUserData()
     data["level"] = 0
     writeUserData(data)
 end
 
 -- streak accessor
 function getStreak()
-    data = readUserData()
+    local data = readUserData()
     return data["streak"]
 end
 
 -- streak mutators
 function streakUp()
-    data = readUserData()
+    local data = readUserData()
     data["streak"] = data["streak"] + 1
     writeUserData(data)
 end
 
 function resetStreak()
-    data = readUserData()
+    local data = readUserData()
     data["streak"] = 0
     writeUserData(data)
 end
 
 -- name accessor
 function getName()
-    data = readUserData()
+    local data = readUserData()
     return data["name"]
 end
 
 -- name mutator
 function changeName(name)
-    data = readUserData()
+    local data = readUserData()
     data["name"] = name
+    writeUserData(data)
+end
+
+-- item tracking
+function addItem(item)
+    local data = readUserData()
+    local exists = false
+    for _, existingID in ipairs(data["items"]) do
+        if existingID == item.id then
+            exists = true
+            break
+        end
+    end
+    if not exists then
+        table.insert(data["items"], item.id)
+    end
     writeUserData(data)
 end

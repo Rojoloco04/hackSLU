@@ -17,13 +17,17 @@ function love.load()
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
 
     -- testing
-    testItem = item.new("book", 10, false, "images/book.png")
+    startUp()
+
+    testItem = item.new(2, "book", 10, false, "images/book.png")
     purchase(testItem)
 
     changeName("Jack")
     print(getName())
     streakUp()
     print(getStreak())
+    
+    addItem(testItem)
 end
 
 function love.update(dt)
