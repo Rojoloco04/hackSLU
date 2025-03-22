@@ -25,7 +25,6 @@ function love.draw()
     testItem:draw(150,300)
 end
 
-
 function love.mousepressed(x,y,button)
     testTextbox:mousepressed(x,y,button)
     anotherTextbox:mousepressed(x,y,button)
