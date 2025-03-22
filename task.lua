@@ -28,9 +28,3 @@ function Task:display()
     
     print("Status: " .. status)
 end
-
-local task1 = Task.new("Finish Lua Project")
-local task2 = Task.new("Buy Groceries")
-    
-task1:display()
-task2:display()
