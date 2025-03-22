@@ -60,9 +60,9 @@ function updateMoney(mode, amount)
         end
     end
     
-    if mode == 'sub' then
+    if mode == "sub" then
         money = money - amount
-    elseif mode == 'add' then
+    elseif mode == "add" then
         money = money + amount
     else 
         print("*ERROR: Invalid mode. Use 'sub' or 'add'")

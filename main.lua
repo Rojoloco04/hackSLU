@@ -11,9 +11,9 @@ data = readUserData()
 font = nil
 function love.load()
     font = love.graphics.newFont(24)
-    print("test") -- console printing test
     testTextbox = textbox.create(150,150,1000,16,"TASK")
-
+    
+    -- test item and purchase
     testItem = item.new("book", 10, false, "images/book.png")
     purchase(testItem)
 
