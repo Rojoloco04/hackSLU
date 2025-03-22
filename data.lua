@@ -42,11 +42,7 @@ end
 function getMoney()
     data = readUserData()
 
-    for key, value in pairs(data) do
-        if string.match(key, "money") then
-            money = value
-        end
-    end
+    money = data["money"]
     return money
 end
 
