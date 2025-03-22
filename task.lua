@@ -44,31 +44,32 @@ function Task:display()
     print("Status: " .. status)
 end
 
--- function Task:deadline()
---     local currentDateUTC = os.date("!*t")
+-- NEEDS TO BE UPDATED!!!!
+function Task:deadline()
+    local currentDateUTC = os.date("!*t")
 
---     currentDateUTC.hour = 0
---     currentDateUTC.min = 0
---     currentDateUTC.sec = 0
+    currentDateUTC.hour = 0
+    currentDateUTC.min = 0
+    currentDateUTC.sec = 0
 
---     local deadlineUTC = os.time(currentDateUTC)
+    local deadlineUTC = os.time(currentDateUTC)
 
---     return deadlineUTC
--- end
+    return deadlineUTC
+end
 
--- function Task:isOverdue(deadline)
---     local currentTime = os.date()
+function Task:isOverdue(deadline)
+    local currentTime = os.date()
 
---     if currentTime > deadline then
---         return true
---     else
---         return false
---     end
--- end
+    if currentTime > deadline then
+        return true
+    else
+        return false
+    end
+end
 
 --deadline system example
 
--- local taskDeadline = getMidnightDeadline()
+-- local taskDeadline = deadline()
 -- print("Task deadline timestamp:", taskDeadline)
 
 -- -- Check if the task is overdue
@@ -80,9 +81,9 @@ end
 -- end
 
 function Task:streak()
-    if self.isAllComplete(taskList) == true
+    if self.isAllComplete(taskList) == true then
         print("Ongoing")
-        streak++
+        streak = streak + 1
     else 
         print("you are a failure")
         streak = 0
