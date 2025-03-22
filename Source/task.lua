@@ -12,14 +12,25 @@ function Task.new(name)
 end
 
 function Task:complete()
-    local utils = require("level")
     self.completed = true
     print("Task " .. self.name .. " marked as completed.")
-
-    utils.xpGain(25)
 end
 
 function Task:display()
     print("Task: " .. self.name)
-    print("Status: " .. tostring(self.completed))
+    local status
+
+    if self.completed == true then 
+        status = "Finished"
+    elseif self.completed == false then
+        status = "Not Finished"
+    end
+    
+    print("Status: " .. status)
 end
+
+local task1 = Task.new("Finish Lua Project")
+local task2 = Task.new("Buy Groceries")
+    
+task1:display()
+task2:display()
