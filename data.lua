@@ -113,3 +113,7 @@ function resetLevel()
 
     writeUserData(data)
 end
+
+-- streak accessor
+
+-- streak mutator
