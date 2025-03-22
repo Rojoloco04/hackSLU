@@ -1,6 +1,6 @@
 package.path = package.path .. ";./?.lua"
 require("item")
-require("readWrite")
+require("data")
 
 function purchase(item)
     local money = getMoney()
