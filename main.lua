@@ -4,6 +4,7 @@ require("task")
 require("item")
 require("readWrite")
 require("shopManager")
+require("foundation")
 
 taskList = {}
 data = readUserData()
@@ -20,17 +21,14 @@ function love.load()
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
 end
 function love.update(dt)
-    testTextbox:update()
-    anotherTextbox:update()
+
 end
 
 function love.draw()
-    love.graphics.setColor(1,1,1,1) -- DONT DELETE, COULD PREENT ANYTHING FROM BEING DRAWN
-    --love.graphics.print("test", font, 150, 150)
-
-    testTextbox:draw()
-    anotherTextbox:draw()
-    testItem:draw(150,300)
+    love.graphics.setBackgroundColor(0.9,0.9,0.9)
+    buildTaskContainer()
+    buildTaskWindows()
+    buildTaskBar()
 end
 
 function love.mousepressed(x,y,button)
