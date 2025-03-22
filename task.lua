@@ -19,10 +19,4 @@ end
 function Task:display()
     print("Task: " .. self.name)
     print("Status: " .. tostring(self.completed))
-end 
-
-local task1 = Task:new("Finish project")
-
-task1:display()
-task1:complete()
-task1:display()
+end
