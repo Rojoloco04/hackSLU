@@ -22,11 +22,13 @@ end
 function Task:isAllComplete()
     local allCompleted = true
     for i=1,#taskList do 
-        if taskList[i].complete() ~= false or taskList[i].isOverdue() then
+        if taskList[i].completed ~= false or taskList[i].isOverdue() then
             allCompleted = false
             break
         end
     end
+
+    print("all tasks completed")
     return allCompleted
 end
 
