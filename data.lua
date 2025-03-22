@@ -41,9 +41,7 @@ end
 -- money accessor
 function getMoney()
     data = readUserData()
-
-    money = data["money"]
-    return money
+    return data["money"]
 end
 
 -- money mutator
@@ -69,51 +67,63 @@ end
 -- xp accessor
 function getXP()
     data = readUserData()
-
-    xp = data["xp"]
-    return xp
+    return data["xp"]
 end
 
 -- xp mutator
 function addXP(amount)
     data = readUserData()
-
-    xp = data["xp"]
-    xp = xp + amount
-    data["xp"] = xp
-
+    data["xp"] = data["xp"] + amount
     writeUserData(data)
 end
 
 -- level accessor
 function getLevel()
     data = readUserData()
-
-    level = data["level"]
-    return level
+    return data["level"]
 end
 
 -- level mutators
 function levelUp()
     data = readUserData()
-
-    level = data["level"]
-    level = level + 1
-    data["level"] = level
-
+    data["level"] = data["level"] + 1
     writeUserData(data)
 end
 
 function resetLevel()
     data = readUserData()
-
-    level = data["level"]
-    level = 0
-    data["level"] = level
-
+    data["level"] = 0
     writeUserData(data)
 end
 
 -- streak accessor
+function getStreak()
+    data = readUserData()
+    return data["streak"]
+end
 
--- streak mutator
+-- streak mutators
+function streakUp()
+    data = readUserData()
+    data["streak"] = data["streak"] + 1
+    writeUserData(data)
+end
+
+function resetStreak()
+    data = readUserData()
+    data["streak"] = 0
+    writeUserData(data)
+end
+
+-- name accessor
+function getName()
+    data = readUserData()
+    return data["name"]
+end
+
+-- name mutator
+function changeName(name)
+    data = readUserData()
+    data["name"] = name
+    writeUserData(data)
+end
