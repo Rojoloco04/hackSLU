@@ -54,11 +54,7 @@ end
 function updateMoney(mode, amount)
     data = readUserData()
 
-    for key, value in pairs(data) do
-        if string.match(key, "money") then
-            money = value
-        end
-    end
+    money = data["money"]
     
     if mode == "sub" then
         money = money - amount
@@ -69,11 +65,7 @@ function updateMoney(mode, amount)
         return
     end
 
-    for key, value in pairs(data) do
-        if string.match(key, "money") then
-            value = money
-        end
-    end
+    data["money"] = money
 
     writeUserData(data)
 end
