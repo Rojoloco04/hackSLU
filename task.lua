@@ -9,7 +9,7 @@ function Task.new(name)
 
     instance.name = name or "Unnamed task"
     instance.completed = false
-    instance.deadline = Task.getMidnightDeadline()
+    instance.deadline = Task.deadline()
 
     return instance
 end
@@ -44,27 +44,27 @@ function Task:display()
     print("Status: " .. status)
 end
 
-function Task:deadline()
-    local currentDateUTC = os.date("!*t")
+-- function Task:deadline()
+--     local currentDateUTC = os.date("!*t")
 
-    currentDateUTC.hour = 0
-    currentDateUTC.min = 0
-    currentDateUTC.sec = 0
+--     currentDateUTC.hour = 0
+--     currentDateUTC.min = 0
+--     currentDateUTC.sec = 0
 
-    local deadlineUTC = os.time(currentDateUTC)
+--     local deadlineUTC = os.time(currentDateUTC)
 
-    return deadlineUTC
-end
+--     return deadlineUTC
+-- end
 
-function Task:isOverdue(deadline)
-    local currentTime = os.date()
+-- function Task:isOverdue(deadline)
+--     local currentTime = os.date()
 
-    if currentTime > deadline then
-        return true
-    else
-        return false
-    end
-end
+--     if currentTime > deadline then
+--         return true
+--     else
+--         return false
+--     end
+-- end
 
 --deadline system example
 
