@@ -1,7 +1,11 @@
 require("textbox")
 require("task")
 require("item")
+require("readWrite")
+
 taskList = {}
+data = readUserData()
+
 font = nil
 function love.load()
     font = love.graphics.newFont(24)
@@ -9,13 +13,6 @@ function love.load()
     testTextbox = textbox.create(150,150,1000,16,"TASK")
     testItem = item.new("book", 10, false, "images/testImage.png")
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
-
-    task1 = Task.new("testing")
-    table.insert(taskList, task1)
-
-    task1:complete()
-    Task:isAllComplete()
-
 end
 function love.update(dt)
     testTextbox:update()

@@ -11,11 +11,6 @@ function item.new(name,price,bought,image)
     return temp
 end
 
-function item:buy()
-    temp.price = 0
-    temp.bought = true
-end
-
 function item:draw(x,y)
     love.graphics.setColor(1,1,1,1)
     love.graphics.draw(self.image, x, y)

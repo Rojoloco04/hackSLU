@@ -8,7 +8,7 @@ function levelUp()
         level = level + 1
     end
 end
-
+--[[ 
 function xpGain(amount)
     xp =  xp + 25
     if xp >= 100
@@ -18,4 +18,5 @@ end
 
 function rebirth()
     level = 0
-    -- call a function that plays an animation for rebirth
+    -- call a function that plays an animation for rebirth 
+]]
