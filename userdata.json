@@ -1,7 +1,7 @@
 {
+  "money":100,
   "level":1,
-  "streak":2,
+  "streak":4,
   "name":"Jack",
-  "xp":5800,
-  "money":20
+  "xp":5800
 }

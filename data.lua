@@ -1,5 +1,5 @@
 package.path = package.path .. ";./?.lua"
-local json = require("dkjson")
+local json = require("libs/dkjson")
 local filename = "userdata.json"
 
 function readUserData()
