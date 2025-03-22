@@ -1,6 +1,8 @@
+package.path = package.path .. ";./?.lua"
+require("task")
+
 textbox = {}
 textbox.__index = textbox
-require("task")
 
 function textbox.create(x,y,max,size, textType)
     local temp = {}

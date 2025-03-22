@@ -2,7 +2,6 @@ Task = {}
 Task.__index = Task
 streak = 0
 
-
 function Task.new(name)
     local instance = {}
     setmetatable(instance,Task)

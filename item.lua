@@ -25,5 +25,3 @@ function item:draw(x,y)
 end
 
 return item
-
-

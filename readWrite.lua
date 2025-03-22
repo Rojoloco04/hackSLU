@@ -37,3 +37,47 @@ function writeUserData(data)
     file:close()
     return true
 end
+
+-- money accessor
+function getMoney()
+    data = readUserData()
+
+    for key, value in pairs(data) do
+        if string.match(key, "money") then
+            money = value
+        end
+    end
+    return money
+end
+
+-- money mutator
+function updateMoney(mode, amount)
+    data = readUserData()
+
+    for key, value in pairs(data) do
+        if string.match(key, "money") then
+            money = value
+        end
+    end
+    
+    if mode == 'sub' then
+        money = money - amount
+    elseif mode == 'add' then
+        money = money + amount
+    else 
+        print("*ERROR: Invalid mode. Use 'sub' or 'add'")
+        return
+    end
+
+    for key, value in pairs(data) do
+        if string.match(key, "money") then
+            value = money
+        end
+    end
+
+    writeUserData(data)
+end
+
+-- function to update user's xp amount
+
+-- function to update user's level

@@ -3,25 +3,14 @@ require("item")
 require("readWrite")
 
 function purchase(item)
-    data = readUserData()
-
-    for key, value in pairs(data) do
-        if string.match(key, "money") then
-            money = value
-        end
-    end
-
+    local money = getMoney()
     if money > item.price then
-        money = money - item.price
-        print("Item " .. item.name .. " purchased for " .. item.price .. "Flex.")
+        updateMoney('sub', item.price)
+        print("Item " .. item.name .. " purchased for " .. item.price .. " Flex.")
+    else
+        print("Insufficient funds.")
     end
+end
 
-    for key, value in pairs(data) do
-        if string.match(key, "money") then
-            value = money
-        end
-    end
-
-    writeUserData(data)
-end 
+return shopManager
 
