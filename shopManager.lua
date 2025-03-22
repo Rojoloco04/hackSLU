@@ -4,7 +4,8 @@ require("data")
 
 function purchase(item)
     local money = getMoney()
-    if money >= item.price then
+    -- check if item already purchased
+    if money >= item.price  then
         updateMoney("sub", item.price)
         addItem(item)
         print("Item " .. item.name .. " purchased for " .. item.price .. " Flex.")

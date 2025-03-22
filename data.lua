@@ -23,7 +23,7 @@ function startUp()
     local data = readUserData()
     data["money"] = data["money"] or 0
     data["xp"] = data["xp"] or 0
-    data["level"] = data["level"] or 0
+    data["level"] = data["level"] or 1
     data["streak"] = data["streak"] or 0
     data["name"] = data["name"] or ""
     data["items"] = data["items"] or {}

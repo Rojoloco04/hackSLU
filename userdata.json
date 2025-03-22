@@ -1,8 +1,8 @@
 {
-  "name":"Jack",
-  "money":0,
-  "xp":0,
-  "level":0,
   "items":[2],
-  "streak":9
+  "name":"Jack",
+  "streak":5,
+  "money":80,
+  "xp":0,
+  "level":0
 }

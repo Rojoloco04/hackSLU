@@ -27,8 +27,6 @@ function love.load()
     print(getName())
     streakUp()
     print(getStreak())
-    
-    addItem(testItem)
 end
 
 function love.update(dt)
