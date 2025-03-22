@@ -15,8 +15,11 @@ end
 
 
 function Task:complete()
+    local utils = require("level")
     self.completed = true
     print("Task " .. task.name .. " marked as completed.")
+
+    utils.xpGain(25)
 end
 
 function Task:display()
