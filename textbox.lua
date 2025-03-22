@@ -2,11 +2,12 @@ textbox = {}
 textbox.__index = textbox
 require("task")
 
-function textbox.create(x,y,max,size)
+function textbox.create(x,y,max,size, textType)
     local temp = {}
     setmetatable(temp,textbox)
 
     temp.size = size
+    temp.type = textType
     temp.font = love.graphics.newFont(20)
     temp.hover = false
     temp.selected = false
@@ -81,11 +82,19 @@ function textbox:keypressed(key)
                 if key ~= "return" then
                     if key == "space" then
                         newKey = " "
+                        key = " "
+                    elseif #key > 1 then
+                        newKey = ""
+                    end
+                    if love.keyboard.isDown("lshift") then
+                        newKey=string.upper(newKey)
                     end
 				    str = str .. newKey
 				    self:setText(str)
                 else
-                    self:createTask()
+                    if self.type == "TASK" then
+                        self:createTask()
+                    end
                 end			
 			end
 		
