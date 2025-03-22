@@ -5,6 +5,7 @@ require("item")
 require("data")
 require("shopManager")
 require("foundation")
+require("addTask")
 
 taskList = {}
 data = readUserData()
@@ -39,13 +40,16 @@ function love.draw()
     buildTaskContainer()
     buildTaskWindows()
     buildTaskBar()
+    drawTaskButton()
 end
 
 function love.mousepressed(x,y,button)
     testTextbox:mousepressed(x,y,button)
     anotherTextbox:mousepressed(x,y,button)
+    interactTaskButton(x,y)
 end
 function love.keypressed(key)
     testTextbox:keypressed(key)
     anotherTextbox:keypressed(key)
+    typeTaskButton(key)
 end

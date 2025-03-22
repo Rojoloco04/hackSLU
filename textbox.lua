@@ -10,11 +10,11 @@ function textbox.create(x,y,max,size, textType)
 
     temp.size = size
     temp.type = textType
-    temp.font = love.graphics.newFont(20)
+    temp.font = love.graphics.newFont(15)
     temp.hover = false
     temp.selected = false
     temp.text = ""
-    temp.displayText = temp.text
+    temp.displayText = "Start typing"
     temp.max = max
     temp.width= temp.font:getWidth("a")*size + 1
     temp.height = temp.font:getHeight()
@@ -28,8 +28,11 @@ function textbox:draw()
     love.graphics.setColor(1,1,1,1)
 
     love.graphics.polygon("fill", self.x, self.y, self.x + self.width, self.y, self.x + self.width, self.y + self.height, self.x, self.y + self.height)
-	love.graphics.setFont(self.font)	
-	love.graphics.setColor(0,0,0,1)
+	love.graphics.setFont(self.font)
+    love.graphics.setColor(0,0,0,1)
+    if self.displayText == "Start typing" then	
+        love.graphics.setColor(.5,.5,.5,.75)
+    end
 	love.graphics.print(self.displayText, self.x, self.y)	
 end
 
