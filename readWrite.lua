@@ -70,6 +70,50 @@ function updateMoney(mode, amount)
     writeUserData(data)
 end
 
--- function to update user's xp amount
+-- xp accessor
+function getXP()
+    data = readUserData()
 
--- function to update user's level
+    xp = data["xp"]
+    return xp
+end
+
+-- xp mutator
+function addXP(amount)
+    data = readUserData()
+
+    xp = data["xp"]
+    xp = xp + amount
+    data["xp"] = xp
+
+    writeUserData(data)
+end
+
+-- level accessor
+function getLevel()
+    data = readUserData()
+
+    level = data["level"]
+    return level
+end
+
+-- level mutators
+function levelUp()
+    data = readUserData()
+
+    level = data["level"]
+    level = level + 1
+    data["level"] = level
+
+    writeUserData(data)
+end
+
+function resetLevel()
+    data = readUserData()
+
+    level = data["level"]
+    level = 0
+    data["level"] = level
+
+    writeUserData(data)
+end
