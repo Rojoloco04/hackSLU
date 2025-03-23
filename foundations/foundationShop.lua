@@ -27,7 +27,7 @@ function drawShopItems()
     for i = 1+(pageIndex*itemPerPage), itemPerPage+(pageIndex*itemPerPage) do
         --where items are drawn
         --lMAKE SURE THAT ITEMS ARE A MULTIPLE OF 5 OR IT WONT WORK :D
-        local font = love.graphics.newFont(25)
+        local font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 24)
         love.graphics.setColor(1,1,1,1)
         love.graphics.print(items[i],font,startX,startY)
         startY = startY + 75
@@ -43,7 +43,7 @@ function drawPageButtons()
             love.graphics.setColor(convertRGB(200, 201, 199))
         end
         love.graphics.circle("fill", startX, 725, 15, 100)
-        font = love.graphics.newFont(20)
+        font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 20)
         love.graphics.setColor(convertRGB(0,0,0))
         love.graphics.print(i,font,startX-6,715)
         startX = startX + 50
