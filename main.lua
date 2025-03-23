@@ -59,9 +59,7 @@ function love.load()
     end
 
     date = currentDate()
-    storeDate(date)
-
-    
+    storeDueDate(date)
 end
 
 function love.update(dt)

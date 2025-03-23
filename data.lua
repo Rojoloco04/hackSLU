@@ -28,7 +28,11 @@ function startUp()
     data["name"] = data["name"] or ""
     data["items"] = data["items"] or {}
     data["tasks"] = data["tasks"] or {}
-    data["date"] = data["date"] or {}
+    data["dueDate"] = data["dueDate"] or {}
+
+    curDate = currentDate()
+    
+
     writeUserData(data)
 end
 
@@ -208,9 +212,12 @@ function currentDate()
     return date
 end 
 
-function storeDate(date)
+function storeDueDate(date)
     local data = readUserData()
-    data["date"] = date
+    date[3] = date[3] + 1
+    date[4] = 0
+    date[5] = 0
+    data["dueDate"] = date
     writeUserData(data)
 end
 
