@@ -29,10 +29,6 @@ function startUp()
     data["items"] = data["items"] or {}
     data["tasks"] = data["tasks"] or {}
     data["dueDate"] = data["dueDate"] or {}
-
-    curDate = currentDate()
-    
-
     writeUserData(data)
 end
 
@@ -209,6 +205,14 @@ function currentDate()
     date[4] = curDate.hour
     date[5] = curDate.min
 
+    -- adjust for timezone (-5 hours in stl)
+    local timeZone = -5
+    date[4] = date[4] + timeZone
+    if date[4] < 0 then
+        date[4] = date[4] + 24
+        date[3] = date[3] - 1
+    end
+
     return date
 end 
 
@@ -219,6 +223,23 @@ function storeDueDate(date)
     date[5] = 0
     data["dueDate"] = date
     writeUserData(data)
+end
+
+-- update streak, give rewards at end of day if no tasks left
+function endOfDay()
+    curDate = currentDate()
+    for key, field in ipairs(data["dueDate"]) do
+        if field > curDate[key] then -- day is over
+        local data = readUserData()
+            if data["tasks"] ~= {} then -- tasks remaining
+                resetStreak()
+                print("Streak broken!")
+            else
+                streakUp()
+                print("Streak maintained!")
+            end
+        end
+    end
 end
 
 return data
