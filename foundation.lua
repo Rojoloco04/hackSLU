@@ -4,6 +4,9 @@ taskbary = 0;
 function convertRGB(r,g,b)
     return r / 255, g / 255, b / 255
 end
+function distanceFromCircleButton(x, y, buttonX, buttonY, buttonRadius)
+    return math.sqrt((x - buttonX)^2 + (y - buttonY)^2)
+end
 
 function buildTaskContainer()
     love.graphics.setColor(convertRGB(0, 36, 77))

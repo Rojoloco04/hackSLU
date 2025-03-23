@@ -25,14 +25,12 @@ function drawShopItems()
     local pageIndex = currentPage - 1
 
     for i = 1+(pageIndex*itemPerPage), itemPerPage+(pageIndex*itemPerPage) do
-        [[
-        where items are drawn
-        MAKE SURE THAT ITEMS ARE A MULTIPLE OF 5 OR IT WONT WORK :D
+        --where items are drawn
+        --lMAKE SURE THAT ITEMS ARE A MULTIPLE OF 5 OR IT WONT WORK :D
         local font = love.graphics.newFont(25)
         love.graphics.setColor(1,1,1,1)
         love.graphics.print(items[i],font,startX,startY)
         startY = startY + 75
-        ]]
     end
 end
 
