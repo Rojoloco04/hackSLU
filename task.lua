@@ -30,23 +30,9 @@ function Task:isAllComplete()
     local data = readUserData()
     local allCompleted = true
     if data["tasks"] ~= {} then
-        allCompleted = false
+        return false
     end
-    return allCompleted
-end
-
-
-function Task:display()
-    print("Task: " .. self.name)
-    local status
-
-    if self.completed == true then 
-        status = "Finished"
-    elseif self.completed == false then
-        status = "Not Finished"
-    end
-    
-    print("Status: " .. status)
+    return true
 end
 
 -- NEEDS TO BE UPDATED!!!!
@@ -86,8 +72,7 @@ end
 -- end
 
 function Task:streak()
-    if self.isAllComplete(taskList) == true then
-        print("Ongoing")
+    if self.isAllComplete(taskList) then
         streakUp()
     else 
         print("Streak broken")
