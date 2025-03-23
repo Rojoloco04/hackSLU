@@ -71,8 +71,8 @@ function drawStats()
     data = readUserData()
     font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 16)
     love.graphics.setColor(0,0,0)
-    love.graphics.print(data["money"], font, 40, 5, 10)
-
-
-
+    love.graphics.print("Money: " .. data["money"], font, 5, 15)
+    love.graphics.print("XP: " .. math.floor(data["xp"]) .. " / " .. math.floor(math.sqrt(data["level"])*100), font, 250, 15)
+    love.graphics.print("Level: " .. data["level"], font, 400, 15)
+    love.graphics.print("Streak: " .. data["streak"], font, 135, 15)
 end 

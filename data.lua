@@ -99,8 +99,8 @@ function levelCheck()
     local curXP = data["xp"]
     local curLV = data["level"]
 
-    while curXP > math.sqrt(curLV) * 10 do
-        curXP = curXP - (math.sqrt(curLV) * 10)
+    while curXP > math.sqrt(curLV) * 100 do
+        curXP = curXP - (math.sqrt(curLV) * 100)
         curLV = curLV + 1
         print("Level up!")
     end
