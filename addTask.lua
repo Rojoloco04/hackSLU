@@ -35,7 +35,7 @@ end
 
 function interactTaskButton(x, y)
 
-    local distance = math.sqrt((x - buttonX)^2 + (y - buttonY)^2)
+    local distance = distanceFromCircleButton(x, y, buttonX, buttonY, buttonRadius)
 
     if distance <= buttonRadius then
         if not clicked then

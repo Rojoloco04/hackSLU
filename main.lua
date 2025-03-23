@@ -8,7 +8,7 @@ require("Billy")
 require("addTask")
 require("init")
 
-currPage = "Resources" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
+currPage = "Shop" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
 data = readUserData()
 
@@ -74,7 +74,12 @@ end
 function love.mousepressed(x,y,button)
     testTextbox:mousepressed(x,y,button)
     anotherTextbox:mousepressed(x,y,button)
-    interactTaskButton(x,y)
+    if currPage == "Main" then
+        interactTaskButton(x,y)
+    elseif currPage == "Shop" then
+        interactShopButton(x,y)
+    end
+
 end
 
 function love.keypressed(key)
