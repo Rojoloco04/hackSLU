@@ -1,5 +1,5 @@
 require("RGBConverter")
-require("foundationGlobal")
+require("foundations/foundationGlobal")
 
 -- do not touch
 taskbary = 0;

@@ -1,9 +1,9 @@
 {
   "tasks":["Clean house","Buy groceries"],
-  "streak":5,
-  "money":15,
-  "xp":50,
+  "name":"Jack",
+  "streak":6,
+  "money":10,
+  "xp":60,
   "level":1,
-  "items":[1],
-  "name":"Jack"
+  "items":[1,2]
 }

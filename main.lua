@@ -6,7 +6,7 @@ require("data")
 require("shopManager")
 require("Billy")
 require("addTask")
-require("foundations/init")
+require("init")
 
 currPage = "Resources" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
@@ -22,7 +22,7 @@ function love.load()
     -- testing
     startUp()
 
-    testItem = item.new(2, "book", 10, false, "images/book.png")
+    testItem = item.new(2, "book", 10, "images/book.png")
     purchase(testItem)
 
     changeName("Jack")

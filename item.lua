@@ -1,13 +1,13 @@
 item = {}
 item.__index = item
 
-function item.new(id,name,price,image)
+function item.new(id,name,price,img)
     local instance = {}
     setmetatable(instance,item)
     instance.id = id
     instance.name = name
     instance.price = price
-    instance.image = love.graphics.newImage(image)
+    instance.image = love.graphics.newImage(img)
     return instance
 end
 
