@@ -3,7 +3,7 @@ require("task")
 require("foundation")
 api = {}
 local tasks = require("defaultTasks")
-local clicked = false
+addTaskclicked = false
 local textboxD = nil
 local sizedifX, sizedifY = 14,120
 local textBoxX, textBoxY = 27,300
@@ -14,7 +14,7 @@ function drawTaskButton(x,y)
     love.graphics.setColor(0,0,0,1)
     love.graphics.circle("fill", buttonX,buttonY,buttonRadius)
     
-    if clicked then
+    if addTaskclicked then
         love.graphics.setColor(0,0,0,.7)
         love.graphics.rectangle("fill",0,0,1000,1000)
         love.graphics.setColor(convertRGB(143, 214, 189))
@@ -41,13 +41,13 @@ function interactTaskButton(x, y)
     local distance = distanceFromCircleButton(x, y, scaled_buttonX, scaled_buttonY, scaled_buttonRadius)
 
     if distance <= scaled_buttonRadius then
-        if not clicked then
-            clicked = true
+        if not addTaskclicked then
+            addTaskclicked = true
             textboxD = textbox.create(textBoxX * scale_factor, textBoxY * scale_factor, 40 * scale_factor, 37 * scale_factor, "TASK")
             textboxD.selected = true
         end
     else
-        if clicked then
+        if addTaskclicked then
             for i = 1, 5 do
                 local taskY = (textBoxY + (40 * i)) * scale_factor
                 local taskHeight = textboxD.height * scale_factor
@@ -58,21 +58,21 @@ function interactTaskButton(x, y)
                     print("clicked " .. tasks[i])
                     textboxD:setText(tasks[i])
                     textboxD:createTask()
-                    clicked = false
+                    addTaskclicked = false
                     return -- Exit early after detecting a valid click
                 end
             end
 
-            clicked = false -- Close menu only if no task was clicked
+            addTaskclicked = false -- Close menu only if no task was clicked
         end
     end
 end
 
 function typeTaskButton(key)
-    if clicked then
+    if addTaskclicked then
         textboxD:keypressed(key)
         if key == 'return' then
-            clicked = false
+            addTaskclicked = false
         end
     end
 end
