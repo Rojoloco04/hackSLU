@@ -1,5 +1,6 @@
 require("RGBConverter")
 local currentGlobalPage = 1
+local taskbary = 662
 function buildButtons()
     love.graphics.setColor(0,0,0)
     local width = 507 / 4
