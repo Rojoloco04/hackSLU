@@ -5,7 +5,8 @@ require("data")
 function purchase(item)
     if not itemExists(item) then
         money = getMoney()
-        if money >= item.price then
+        level = getLevel()
+        if money >= item.price and level >= item.lvlReq then
             updateMoney("sub", item.price)
             addItem(item)
             print("Item " .. item.name .. " purchased for " .. item.price .. " Flex.")
