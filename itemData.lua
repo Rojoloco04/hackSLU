@@ -59,8 +59,8 @@ function updateItem(itemID, newData)
             if newData.cost then
                 item.cost = newData.cost
             end
-            if newData.levelRequirement then
-                item.levelRequirement = newData.levelRequirement
+            if newData.lvlReq then
+                item.lvlReq = newData.lvlReq
             end
             if newData.filepath then
                 item.filepath = newData.filepath
@@ -79,5 +79,4 @@ return {
     getItemByID      = getItemByID,
     itemExists       = itemExists,
     updateItem       = updateItem,
-    loadItems        = loadItems,
 }

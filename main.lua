@@ -76,13 +76,16 @@ function love.mousepressed(x,y,button)
     anotherTextbox:mousepressed(x,y,button)
     if currPage == "Main" then
         if not addTaskclicked then
-            pressTasksList(x,y)
+            pressTasksList(x, y)
             markTaskOnClick(x, y)
             loadTasks()
         end
         interactTaskButton(x,y)
     elseif currPage == "Shop" then
         interactShopButton(x,y)
+        pressItemList(x,y)
+        markItemonClick(x,y)
+        getAllItems()
     end
     globalPress(x,y)
 end
