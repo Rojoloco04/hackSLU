@@ -14,7 +14,7 @@ function drawShop()
     buildShopContainer()
     drawPageButtons()
     drawShopItems()
-
+    
     currPage = "Shop"
 end
 

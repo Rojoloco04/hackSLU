@@ -31,6 +31,7 @@ function buildGlobal()
         end
         love.graphics.rectangle("fill", 0 + ((i-1) * width), 755, width, 900 - (taskbary + 88), 7)
     end
+    
     buildButtons()
     buttonText()
 end

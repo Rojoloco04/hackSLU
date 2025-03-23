@@ -21,12 +21,10 @@ function buildTaskWindows()
 end
 
 function drawMain()
-    
     buildTaskContainer()
     buildTaskWindows()
     displayDataMain()
     drawTaskButton()
-    
     
     currPage = "Main"
 end
