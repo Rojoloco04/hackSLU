@@ -10,7 +10,8 @@ require("assets/globalFont")
 require("animations/displayImage")
 require("animations/BillyIdle")
 
-
+items = {}
+images = {}
 taskList = {}
 currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 data = readUserData()
@@ -75,7 +76,7 @@ function love.draw()
     love.graphics.scale(scale_factor, scale_factor)
     
     if currPage == "Main" or currPage == "Shop" then
-        displayImage("images/background.png", 0, 0)
+        displayImage("images/nonstore/background.png", 0, 0)
         drawIdle((507/2) - 100, 150)
     end    
     

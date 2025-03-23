@@ -64,6 +64,21 @@ function getXP()
     return data["xp"]
 end
 
+function loadShopImages(directory)
+    for _, filename in ipairs(love.filesystem.getDirectoryItems(directory)) do
+        if filename:match("%.png$") then
+            local path = directory .. "/" .. filename
+            if love.filesystem.getInfo(path) then
+                local image = love.graphics.newImage(path)
+                table.insert(images, image)
+            else
+                print("Missing file: " .. path)
+            end
+        end
+    end
+end
+
+
 -- xp mutators
 function addXP(amount)
     local data = readUserData()
@@ -147,14 +162,40 @@ function changeName(name)
     writeUserData(data)
 end
 
--- item tracking
-function addItem(item)
+function itemExistsByID(itemID)
     local data = readUserData()
-    if not itemExists(item) then
-        table.insert(data["items"], item.id)
+    
+    for _, item in ipairs(data["items"]) do
+        if item.id == itemID then
+            return true
+        end
     end
-    writeUserData(data)
+    return false
 end
+
+function purchaseItem(itemID)
+    local data = readUserData()
+    
+    for _, item in ipairs(data["items"]) do
+        if item.id == itemID then
+            if data["money"] >= item.cost and data["level"] >= item.levelReq then
+                data["money"] = data["money"] - item.cost
+                item.purchased = true
+                print("Item purchased: " .. itemID)
+                writeUserData(data)
+
+                table.insert(items, item)
+                return
+            else
+                print("Not enough money or level too low.")
+                return
+            end
+        end
+    end
+
+    print("Item not found.")
+end
+
 
 function itemExists(item)
     local data = readUserData()
