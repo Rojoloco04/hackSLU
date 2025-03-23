@@ -10,8 +10,8 @@ require("init")
 require("assets/globalFont")
 
 
-currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
+currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 data = readUserData()
 
 function love.load()
