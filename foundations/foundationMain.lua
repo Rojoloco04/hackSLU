@@ -1,30 +1,65 @@
 require("RGBConverter")
-require("foundations/foundationGlobal")
-require("./DisplayData/displayDataMain")
+local currentGlobalPage = 1
+function buildButtons()
+    love.graphics.setColor(0,0,0)
+    local width = 507 / 4
 
--- do not touch
-taskbary = 0;
-
-function buildTaskContainer()
-    love.graphics.setColor(convertRGB(0, 36, 77))
-    love.graphics.rectangle("fill", 20, 300, 467, 450, 15)
-end
-
-function buildTaskWindows()
-    love.graphics.setColor(convertRGB(83, 195, 238))
-    local basey = 310
-    local gap = 10
-    for i = 1, #taskList do
-        love.graphics.rectangle("fill", 30, basey + (i - 1) * (78 + gap), 447, 78, 15)
-        taskbary = basey + (i - 1) * (78 + gap)
+    for i=1,4 do
+        love.graphics.rectangle("line", 0 + ((i-1) * width), 755, width, 900 - (taskbary + 88), 7)
+        
     end
 end
 
-function drawMain()
-    buildTaskContainer()
-    buildTaskWindows()
-    drawTaskButton()
-    displayDataMain()
-    
-    currPage = "Main"
+function buttonText()
+    local font = love.graphics.newFont(25)
+    love.graphics.print("Home", font, 26, 785)
+    love.graphics.print("Shop", font, 159, 785)
+    love.graphics.print("Resource", font, 261.5, 785)
+    love.graphics.print("Activity", font, 395, 785)
+end
+
+
+function buildGlobal() 
+    love.graphics.setBackgroundColor(0.8,0.8,0.8)
+    love.graphics.setColor(convertRGB(237, 139, 0))
+    local width = 507 / 4
+    for i=1,4 do
+        love.graphics.setColor(convertRGB(237, 139, 0))
+        if i == currentGlobalPage then
+            love.graphics.setColor(convertRGB(190, 110, 0))
+        end
+        love.graphics.rectangle("fill", 0 + ((i-1) * width), 755, width, 900 - (taskbary + 88), 7)
+    end
+    buildButtons()
+    buttonText()
+end
+
+
+function globalPress(x, y)
+    local width = (507 / 4) * scale_factor
+    local height = (900 - (taskbary + 88)) * scale_factor
+    local startY = 755 * scale_factor
+
+    local centers = {}
+
+    for i = 1, 4 do
+        local centerX = ((i - 1) * width) + (width / 2)
+        local centerY = startY + (height / 2)
+        table.insert(centers, {x = centerX, y = centerY})
+    end
+    for i=1,4 do
+        local distance = distanceFromCircleButton(x, y, centers[i].x, centers[i].y, width / 2)
+        if distance <= width / 2 then
+            currentGlobalPage = i
+            if i == 1 then
+                currPage = "Main"
+            elseif i == 2 then
+                currPage = "Shop"
+            elseif i == 3 then
+                currPage = "Resources"
+            elseif i == 4 then
+                currPage = "Activities"
+            end
+        end
+    end
 end
