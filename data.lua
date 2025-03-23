@@ -230,6 +230,11 @@ function endOfDay()
     local data = readUserData()
     local curDate = currentDate()
 
+    -- check for empty due date
+    if #data["dueDate"] == 0 then
+        return
+    end
+
     -- format into YYYYMMDD integer
     local dueDateNum = data["dueDate"][1] * 10000 + data["dueDate"][2] * 100 + data["dueDate"][3]
     local curDateNum = curDate[1] * 10000 + curDate[2] * 100 + curDate[3]
