@@ -7,15 +7,16 @@ require("shopManager")
 require("Billy")
 require("addTask")
 require("init")
+require("assets/globalFont")
 
-currPage = "Shop" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
+
+currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
 data = readUserData()
 
-font = nil
+font = setGlobalFont()
 
 function love.load()
-    font = love.graphics.newFont(24)
     testTextbox = textbox.create(150,150,1000,16,"TASK")
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
 
@@ -46,6 +47,7 @@ function love.load()
 
     date = currentDate()
     storeDate(date)
+
     
 end
 
