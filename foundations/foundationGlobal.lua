@@ -14,7 +14,7 @@ function buttonText()
     local font = love.graphics.newFont("assets/Silkscreen-Regular.ttf",16)
     love.graphics.print("Home", font, 26, 785)
     love.graphics.print("Shop", font, 159, 785)
-    love.graphics.print("Resource", font, 261.5, 785)
+    love.graphics.print("Resources", font, 261.5, 785)
     love.graphics.print("Activity", font, 395, 785)
 end
 
