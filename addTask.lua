@@ -12,7 +12,7 @@ local boxY = 280
 local buttonX, buttonY, buttonRadius = 465, 728, 30
 
 function drawPlus(x, y)
-    love.graphics.setColor(1, 1, 1)
+    love.graphics.setColor(0, 0, 0)
 
     -- Draw the even larger vertical line of the cross
     love.graphics.rectangle("fill", x - 2, y - 15, 5, 30)  -- Even larger vertical rectangle
