@@ -72,8 +72,8 @@ function interactTaskButton(x, y)
                 if x > taskX and x < taskX + taskWidth and y > taskY and y < taskY + taskHeight then
                     print("clicked " .. tasks[i])
                     textboxD:setText(tasks[i])
-                    textboxD:createTask()
-                    addTaskclicked = false
+                    textboxD.displayText = tasks[i]
+                    addTaskclicked = true
                     return -- Exit early after detecting a valid click
                 end
             end
