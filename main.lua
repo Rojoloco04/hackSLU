@@ -8,7 +8,7 @@ require("addTask")
 require("init")
 require("assets/globalFont")
 require("animations/displayImage")
-require("animations/BillyIdle")
+require("animations/animate")
 require("itemData")
 
 items = {}
@@ -20,6 +20,31 @@ data = readUserData()
 function love.load()
 
     -- ON SOMETHING
+    idle = loadAnimation({
+    "images/nonstore/billy.png", 
+    "images/nonstore/billyWave1.png",
+    "images/nonstore/billyWave2.png",
+    "images/nonstore/billyWave3.png",
+    "images/nonstore/billyWave3.png",
+    "images/nonstore/billyWave2.png",
+    "images/nonstore/billyWave1.png",
+    "images/nonstore/billy.png"}, 0.1)
+
+    -- blink = loadAnimation({
+    -- "images/nonstore/billy.png",
+    -- "images/nonstore/billyEyesClosed.png",
+    -- "images/nonstore/billy.png" 
+    -- }, 0.1)
+
+    -- jump = loadAnimation({ -_ON LEVEL UP
+    --     "images/nonstore/billy.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billy.png"
+    -- }, 0.1)
+
     font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 20)
     love.graphics.setFont(font)
     love.window.setMode(0, 0)
@@ -41,7 +66,7 @@ function love.load()
     startUp()
     endOfDay()
     loadTasks()
-    getAllItems()
+
 end
 
 function love.update(dt)
@@ -49,6 +74,7 @@ function love.update(dt)
 end
 
 function love.draw()
+    local currentAnimation = "idle"
     love.graphics.scale(scale_factor, scale_factor)
     
     if currPage == "Main" or currPage == "Shop" then
@@ -57,6 +83,7 @@ function love.draw()
     end    
     
     buildGlobal()
+    drawStats()
     
     if currPage == "Main" then
         drawMain()

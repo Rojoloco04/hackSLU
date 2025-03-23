@@ -16,7 +16,7 @@ function Task:complete()
             print("Task " .. self.name .. " has been completed.")
             writeUserData(data)
             -- reward for completing task
-            addXP(100)
+            addXP(10)
             updateMoney("add", 5)
             return
         end
