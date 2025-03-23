@@ -122,6 +122,8 @@ function levelUp()
     data["level"] = data["level"] + 1
     print("Level up!")
     writeUserData(data)
+
+    
 end
 
 function resetLevel()

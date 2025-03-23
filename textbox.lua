@@ -30,7 +30,7 @@ function textbox:draw()
     love.graphics.polygon("fill", self.x, self.y, self.x + self.width, self.y, self.x + self.width, self.y + self.height, self.x, self.y + self.height)
 	love.graphics.setFont(self.font)
     love.graphics.setColor(0,0,0,1)
-    if self.displayText == "Start typing" then	
+    if self.displayText == "Start typing..." then	
         love.graphics.setColor(.5,.5,.5,.75)
     end
 	love.graphics.print(self.displayText, self.x, self.y)	
