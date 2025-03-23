@@ -75,7 +75,7 @@ function love.mousepressed(x,y,button)
     elseif currPage == "Shop" then
         interactShopButton(x,y)
     end
-    
+    globalPress(x,y)
 end
 
 function love.keypressed(key)
