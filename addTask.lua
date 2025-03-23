@@ -21,7 +21,7 @@ function drawTaskButton(x,y)
         love.graphics.rectangle("fill",boxX, boxY,textboxD.width+(2*sizedifX),textboxD.height+(2*sizedifY),15)
         local baseYDif = 40
         for i =1,5 do
-            local font = love.graphics.newFont(15)
+            local font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 16)
             love.graphics.setColor(1,1,1,.8)
             love.graphics.rectangle("fill",textBoxX, textBoxY+baseYDif,textboxD.width,textboxD.height,15)
             love.graphics.setColor(0,0,0,1)

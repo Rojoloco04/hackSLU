@@ -10,7 +10,7 @@ function textbox.create(x,y,max,size, textType)
 
     temp.size = size
     temp.type = textType
-    temp.font = love.graphics.newFont(15)
+    temp.font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 16)
     temp.hover = false
     temp.selected = false
     temp.text = ""

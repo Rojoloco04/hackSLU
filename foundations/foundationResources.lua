@@ -8,7 +8,7 @@ function buildResourceContainer()
 end
 
 function writeResources()
-    font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 16)
+    font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 12)
     love.graphics.setColor(1,1,1)
     local basey = 50
     local gap = -3.5

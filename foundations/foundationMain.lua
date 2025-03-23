@@ -1,6 +1,6 @@
 require("RGBConverter")
 require("foundations/foundationGlobal")
-require("./DisplayData/displayDataMain")
+require("DisplayData/displayDataMain")
 
 -- do not touch
 taskbary = 0;
