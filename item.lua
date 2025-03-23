@@ -1,14 +1,14 @@
 item = {}
 item.__index = item
 
-function item.new(id,name,price,bought,image)
-    temp = {}
-    setmetatable(temp,item)
-    temp.id = id
-    temp.name = name
-    temp.price = price
-    temp.image = love.graphics.newImage(image)
-    return temp
+function item.new(id,name,price,image)
+    local instance = {}
+    setmetatable(instance,item)
+    instance.id = id
+    instance.name = name
+    instance.price = price
+    instance.image = love.graphics.newImage(image)
+    return instance
 end
 
 function item:draw(x,y)
