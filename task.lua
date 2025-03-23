@@ -4,12 +4,10 @@ streak = 0
 
 function Task.new(name)
     local instance = {}
-    setmetatable(instance,Task)
-
+    setmetatable(instance,Task) 
     instance.name = name or "Unnamed task"
     instance.completed = false
     instance.deadline = Task.deadline()
-
     return instance
 end
 
@@ -84,10 +82,10 @@ end
 function Task:streak()
     if self.isAllComplete(taskList) == true then
         print("Ongoing")
-        streak = streak + 1
+        streakUp()
     else 
-        print("you are a failure")
-        streak = 0
+        print("Streak broken")
+        resetStreak()
     end
 end
 
