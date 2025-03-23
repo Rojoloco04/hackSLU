@@ -9,7 +9,6 @@ require("addTask")
 require("init")
 require("assets/globalFont")
 
-
 currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
 data = readUserData()
