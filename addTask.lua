@@ -43,7 +43,7 @@ function interactTaskButton(x, y)
     if distance <= scaled_buttonRadius then
         if not clicked then
             clicked = true
-            textboxD = textbox.create(textBoxX * scale_factor, textBoxY * scale_factor, 40 * scale_factor, 50 * scale_factor, "TASK")
+            textboxD = textbox.create(textBoxX * scale_factor, textBoxY * scale_factor, 40 * scale_factor, 37 * scale_factor, "TASK")
             textboxD.selected = true
         end
     else

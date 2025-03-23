@@ -3,7 +3,7 @@ require("foundations/foundationGlobal")
 require("DisplayData/displayDataMain")
 
 -- do not touch
-taskbary = 0;
+local taskbary = 0;
 
 function buildTaskContainer()
     love.graphics.setColor(convertRGB(0, 36, 77))
