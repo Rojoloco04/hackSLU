@@ -1,7 +1,7 @@
 require("RGBConverter")
 
 function displayDataMain()
-    font = love.graphics.newFont(35)
+    font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 30)
     love.graphics.setColor(0,0,0)
     local basey = 331
     local gap = 6
