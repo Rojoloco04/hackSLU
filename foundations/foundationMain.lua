@@ -30,3 +30,37 @@ function drawMain()
     
     currPage = "Main"
 end
+
+function pressTasksList(x,y)
+    local taskCenters = {}
+
+    for i = 1, #taskList do
+        local taskY = basey + (i - 1) * (78 + gap)
+        love.graphics.rectangle("fill", 30, taskY, 447, 78, 15)
+    
+
+        local centerX = 30 + (447 / 2)  
+        local centerY = taskY + (78 / 2) 
+        table.insert(taskCenters, {x = centerX, y = centerY})
+    end
+    
+    for i = 1, #taskCenters do
+        local distanceM = distanceFromCircleButton(x, y, taskCenters[i].x, taskCenters[i].y, 78 / 2)
+        local distanceL = distanceFromCircleButton(x, y, taskCenters[i].x-39, taskCenters[i].y, 78 / 2)
+        local distanceR = distanceFromCircleButton(x, y, taskCenters[i].x+39, taskCenters[i].y, 78 / 2)
+        local distanceLL = distanceFromCircleButton(x, y, taskCenters[i].x-39*2, taskCenters[i].y, 78 / 2)
+        local distanceLLL = distanceFromCircleButton(x, y, taskCenters[i].x-39*3, taskCenters[i].y, 78 / 2)
+        local distanceRR = distanceFromCircleButton(x, y, taskCenters[i].x+39*2, taskCenters[i].y, 78 / 2)
+        local distanceRRR = distanceFromCircleButton(x, y, taskCenters[i].x+39*3, taskCenters[i].y, 78 / 2)
+        local distanceRRRR = distanceFromCircleButton(x, y, taskCenters[i].x+39*4, taskCenters[i].y, 78 / 2)
+        local distanceLLLL = distanceFromCircleButton(x, y, taskCenters[i].x-39*4, taskCenters[i].y, 78 / 2)
+        -- I know this is god awful, but it works and im tired
+        local distance = math.min(distanceM, distanceL, distanceR, distanceLL, distanceRR, distanceLLL, distanceRRR, distanceRRRR, distanceLLLL)
+
+
+        if distance <= 78 / 2 then
+            selectedTaskIndex = i
+            print("pressed task" .. i)  -- Assuming you have taskList holding task names or objects
+        end
+    end
+end
