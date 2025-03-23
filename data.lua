@@ -132,14 +132,12 @@ end
 
 function itemExists(item)
     local data = readUserData()
-    local exists = false
     for _, existingID in ipairs(data["items"]) do
         if existingID == item.id then
-            exists = true
-            break
+            return true
         end
     end
-    return exists
+    return false
 end
 
 -- task tracking
@@ -147,20 +145,19 @@ function addActiveTask(task)
     local data = readUserData()
     if not activeTaskExists(task) then
         table.insert(data["tasks"], task.name)
+        print("Task " .. task.name .. " has been added to active tasks.")
     end
     writeUserData(data)
 end
 
 function activeTaskExists(task)
     local data = readUserData()
-    local exists = false
-    for _, existingID in ipairs(data["tasks"]) do
-        if existingID == task.name then
-            exists = true
-            break
+    for _, existingTask in ipairs(data["tasks"]) do
+        if existingTask == task.name then
+            return true
         end
     end
-    return exists
+    return false
 end
 
 

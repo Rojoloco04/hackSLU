@@ -28,10 +28,9 @@ function love.load()
     streakUp()
     print(getStreak())
 
-    testTask = Task.new("Clean House")
+    testTask = Task.new("Clean car")
     addActiveTask(testTask)
-    testTask = Task.new("Wash Dishes")
-    addActiveTask(testTask)
+    testTask:complete()
 end
 
 function love.update(dt)
