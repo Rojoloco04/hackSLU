@@ -31,6 +31,11 @@ function love.load()
     testTask = Task.new("Clean car")
     addActiveTask(testTask)
     testTask:complete()
+
+    loadTasks()
+    for _, task in ipairs(taskList) do
+        print(task)
+    end
 end
 
 function love.update(dt)

@@ -160,6 +160,12 @@ function activeTaskExists(task)
     return false
 end
 
-
+-- load tasks from json
+function loadTasks()
+    local data = readUserData()
+    for _, task in ipairs(data["tasks"]) do
+        table.insert(taskList, task)
+    end
+end
 
 return data
