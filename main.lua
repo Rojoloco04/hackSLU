@@ -96,7 +96,6 @@ function love.draw()
 
 end
 
-
 function love.mousepressed(x,y,button)
     testTextbox:mousepressed(x,y,button)
     anotherTextbox:mousepressed(x,y,button)
@@ -104,6 +103,8 @@ function love.mousepressed(x,y,button)
         interactTaskButton(x,y)
         if not addTaskclicked then
             pressTasksList(x,y)
+            markTaskOnClick(x, y)
+            loadTasks()
         end
     elseif currPage == "Shop" then
         interactShopButton(x,y)
