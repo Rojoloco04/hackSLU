@@ -36,6 +36,7 @@ function love.load()
 
     -- testing
     startUp()
+    endOfDay()
 
     testItem = item.new(2, "book", 10, "images/book.png")
     purchase(testItem)
