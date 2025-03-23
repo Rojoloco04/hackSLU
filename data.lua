@@ -231,7 +231,7 @@ function endOfDay()
     for key, field in ipairs(data["dueDate"]) do
         if field > curDate[key] then -- day is over
         local data = readUserData()
-            if data["tasks"] ~= {} then -- tasks remaining
+            if #data["tasks"] > 0 then -- tasks remaining
                 resetStreak()
                 print("Streak broken!")
             else
