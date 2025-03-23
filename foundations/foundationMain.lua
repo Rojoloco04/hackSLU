@@ -27,6 +27,7 @@ function drawMain()
     displayDataMain()
     drawTaskButton()
     
+    
     currPage = "Main"
 end
 
