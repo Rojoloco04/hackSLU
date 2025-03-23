@@ -28,6 +28,7 @@ function startUp()
     data["name"] = data["name"] or ""
     data["items"] = data["items"] or {}
     data["tasks"] = data["tasks"] or {}
+    data["date"] = data["date"] or {}
     writeUserData(data)
 end
 
@@ -191,6 +192,26 @@ function loadTasks()
     for _, task in ipairs(data["tasks"]) do
         table.insert(taskList, task)
     end
+end
+
+-- date functionality
+-- format year, month, day, hour, minute
+function currentDate()
+    local curDate = os.date("!*t")
+    date = {}
+    date[1] = curDate.year
+    date[2] = curDate.month
+    date[3] = curDate.day
+    date[4] = curDate.hour
+    date[5] = curDate.min
+
+    return date
+end 
+
+function storeDate(date)
+    local data = readUserData()
+    data["date"] = date
+    writeUserData(data)
 end
 
 return data

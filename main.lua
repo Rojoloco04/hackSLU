@@ -43,6 +43,10 @@ function love.load()
     for _, task in ipairs(taskList) do
         print(task)
     end
+
+    date = currentDate()
+    storeDate(date)
+    
 end
 
 function love.update(dt)
