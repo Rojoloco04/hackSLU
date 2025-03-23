@@ -39,9 +39,6 @@ end
 function Task:deadline()
     local currentDateUTC = os.date("!*t")
 
-    currentDateUTC.hour = 0
-    currentDateUTC.min = 0
-    currentDateUTC.sec = 0
 
     local deadlineUTC = os.time(currentDateUTC)
 

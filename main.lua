@@ -7,28 +7,16 @@ require("shopManager")
 require("Billy")
 require("addTask")
 require("init")
+require("assets/globalFont")
 
-currPage = "Shop" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
+
+currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
 data = readUserData()
 
-font = nil
+font = setGlobalFont()
 
 function love.load()
-    love.window.setMode(0, 0)
-    screen_width = 480
-    screen_height = 854
-    print(screen_width)
-    print(screen_height)
-    love.window.setMode(507, 900)
-    local target_width = 507
-    local target_height = 900
-    love.window.setMode(target_width, target_height)
-    scale_x = screen_width / target_width
-    scale_y = screen_height / target_height
-
-    -- Use the smaller scale to maintain aspect ratio
-    scale_factor = math.min(scale_x, scale_y)
     font = love.graphics.newFont(24)
     testTextbox = textbox.create(150,150,1000,16,"TASK")
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
@@ -57,6 +45,11 @@ function love.load()
     for _, task in ipairs(taskList) do
         print(task)
     end
+
+    date = currentDate()
+    storeDate(date)
+
+    
 end
 
 function love.update(dt)
