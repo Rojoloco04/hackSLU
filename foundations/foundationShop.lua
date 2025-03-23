@@ -51,14 +51,20 @@ function drawPageButtons()
     love.graphics.setColor(convertRGB(255, 255, 255))
 end
 
-function interactShopButton(x,y)
-    for i = 1,8 do 
-        local startX = 75
-        local distance = distanceFromCircleButton(x, y, startX + (i-1)*50,725,15)
-        if distance <= 15 then
+function interactShopButton(x, y)
+    for i = 1, 8 do 
+        local startX = 75 * scale_factor
+        local buttonY = 725 * scale_factor
+        local buttonRadius = 15 * scale_factor
+        local buttonX = startX + (i - 1) * (50 * scale_factor)
+
+        local distance = distanceFromCircleButton(x, y, buttonX, buttonY, buttonRadius)
+
+        if distance <= buttonRadius then
             print("clicked on " .. i)
             currentPage = i
         end
     end
 end
+
         

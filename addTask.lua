@@ -34,32 +34,40 @@ end
 
 
 function interactTaskButton(x, y)
+    local scaled_buttonX = buttonX * scale_factor
+    local scaled_buttonY = buttonY * scale_factor
+    local scaled_buttonRadius = buttonRadius * scale_factor
 
-    local distance = distanceFromCircleButton(x, y, buttonX, buttonY, buttonRadius)
+    local distance = distanceFromCircleButton(x, y, scaled_buttonX, scaled_buttonY, scaled_buttonRadius)
 
-    if distance <= buttonRadius then
+    if distance <= scaled_buttonRadius then
         if not clicked then
             clicked = true
-             textboxD = textbox.create(27,300,40,50,"TASK")
+            textboxD = textbox.create(textBoxX * scale_factor, textBoxY * scale_factor, 40 * scale_factor, 50 * scale_factor, "TASK")
             textboxD.selected = true
         end
     else
         if clicked then
-            for i = 1,5 do
-                if x > textBoxX and y > textBoxY + (40*i) and x < textBoxX + textboxD.width and y < textBoxY + (40*i) + textboxD.height then
-                    print("clicked" .. tasks[i])
+            for i = 1, 5 do
+                local taskY = (textBoxY + (40 * i)) * scale_factor
+                local taskHeight = textboxD.height * scale_factor
+                local taskWidth = textboxD.width * scale_factor
+                local taskX = textBoxX * scale_factor
+
+                if x > taskX and x < taskX + taskWidth and y > taskY and y < taskY + taskHeight then
+                    print("clicked " .. tasks[i])
                     textboxD:setText(tasks[i])
                     textboxD:createTask()
                     clicked = false
-                else
-                    clicked = false
+                    return -- Exit early after detecting a valid click
                 end
-
             end
+
+            clicked = false -- Close menu only if no task was clicked
         end
     end
-
 end
+
 function typeTaskButton(key)
     if clicked then
         textboxD:keypressed(key)
