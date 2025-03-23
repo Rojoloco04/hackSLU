@@ -176,6 +176,19 @@ function addActiveTask(task)
     writeUserData(data)
 end
 
+function removeActiveTask(name)
+    local data = readUserData()
+    for key, existingTask in ipairs(data["tasks"]) do
+        if existingTask == name then
+            table.remove(data["tasks"], key)
+            print("Task " .. name .. " has been removed.")
+            writeUserData(data)
+            return
+        end
+    end
+    print("Task not found")
+end
+
 function activeTaskExists(task)
     local data = readUserData()
     for _, existingTask in ipairs(data["tasks"]) do
@@ -191,7 +204,8 @@ function loadTasks()
     local data = readUserData()
     taskList = {}
     for _, task in ipairs(data["tasks"]) do
-        table.insert(taskList, task)
+        local newTask = Task.new(task)
+        table.insert(taskList, newTask)
     end
 end
 
@@ -253,5 +267,3 @@ function endOfDay()
     -- update to new due date
     storeDueDate(currentDate())
 end
-
-return data
