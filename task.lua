@@ -5,7 +5,7 @@ streak = 0
 function Task.new(name)
     local instance = {}
     setmetatable(instance,Task) 
-    instance.name = name or "Unnamed task"
+    instance.name = name
     instance.completed = false
     instance.deadline = Task.deadline()
     return instance
