@@ -122,6 +122,7 @@ end
 function textbox:createTask()
     local newTask = Task.new(self:getText())
     print("created new task with name " .. newTask.name)
+    table.insert(taskList, newTask)
     addActiveTask(newTask)
     loadTasks()
     self:setText("")

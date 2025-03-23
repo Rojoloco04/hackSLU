@@ -204,7 +204,7 @@ function loadTasks()
     local data = readUserData()
     taskList = {}
     for _, task in ipairs(data["tasks"]) do
-        local newTask = Task:new(task)
+        local newTask = Task.new(task)
         table.insert(taskList, newTask)
     end
 end
