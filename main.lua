@@ -35,9 +35,6 @@ function love.load()
     startUp()
     endOfDay()
     loadTasks()
-    task1 = Task.new("tasking")
-    addActiveTask(task1)
-    print("TASK LIST LENGTH"..#taskList)
 end
 
 function love.update(dt)
