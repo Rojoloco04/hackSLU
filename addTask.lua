@@ -18,14 +18,14 @@ function drawTaskButton(x,y)
         love.graphics.setColor(0,0,0,.7)
         love.graphics.rectangle("fill",0,0,1000,1000)
         love.graphics.setColor(convertRGB(143, 214, 189))
-        love.graphics.rectangle("fill",boxX, boxY,textboxD.width+(2*sizedifX),textboxD.height+(2*sizedifY))
+        love.graphics.rectangle("fill",boxX, boxY,textboxD.width+(2*sizedifX),textboxD.height+(2*sizedifY),15)
         local baseYDif = 40
         for i =1,5 do
             local font = love.graphics.newFont(15)
             love.graphics.setColor(1,1,1,.8)
-            love.graphics.rectangle("fill",textBoxX, textBoxY+baseYDif,textboxD.width,textboxD.height)
+            love.graphics.rectangle("fill",textBoxX, textBoxY+baseYDif,textboxD.width,textboxD.height,15)
             love.graphics.setColor(0,0,0,1)
-            love.graphics.print(tasks[i],font, textBoxX, textBoxY+baseYDif)
+            love.graphics.print(tasks[i],font, textBoxX+7, textBoxY+baseYDif)
             baseYDif = baseYDif + 40
         end
         textboxD:draw()
