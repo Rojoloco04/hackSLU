@@ -120,7 +120,7 @@ end
 function levelUp()
     local data = readUserData()
     data["level"] = data["level"] + 1
-    print("Level up!")
+    setAnimation("jump")
     writeUserData(data)
 end
 

@@ -36,35 +36,40 @@ function drawIdle(x, y)
     love.graphics.draw(frames[currentFrame], x, y)
 end
 
-function animateJump()
-    loadAnimation({ 
-        "images/nonstore/billy.png",
-        "images/nonstore/billySquat.png",
-        "images/nonstore/billySquat.png",
-        "images/nonstore/billySquat.png",
-        "images/nonstore/billySquat.png",
-        "images/nonstore/billy.png"
-        }, 0.1)()
-end
+function setAnimation(animation)
+    if animation == currentAnimation then
+        return -- Avoid reloading the same animation
+    end
 
-function animateIdle()
-    loadAnimation({
-        "images/nonstore/billy.png", 
-        "images/nonstore/billyWave1.png",
-        "images/nonstore/billyWave2.png",
-        "images/nonstore/billyWave3.png",
-        "images/nonstore/billyWave3.png",
-        "images/nonstore/billyWave2.png",
-        "images/nonstore/billyWave1.png",
-        "images/nonstore/billy.png"}, 0.1)
-end
+    currentAnimation = animation
 
-function animateBlink()
-    blink = loadAnimation({
-        "images/nonstore/billy.png",
-        "images/nonstore/billyEyesClosed.png",
-        "images/nonstore/billy.png" 
+    if animation == "idle" then
+        loadAnimation({
+            "images/nonstore/billy.png", 
+            "images/nonstore/billyWave1.png",
+            "images/nonstore/billyWave2.png",
+            "images/nonstore/billyWave3.png",
+            "images/nonstore/billyWave3.png",
+            "images/nonstore/billyWave2.png",
+            "images/nonstore/billyWave1.png",
+            "images/nonstore/billy.png"
         }, 0.1)
+    elseif animation == "jump" then
+        loadAnimation({ 
+            "images/nonstore/billy.png",
+            "images/nonstore/billySquat.png",
+            "images/nonstore/billySquat.png",
+            "images/nonstore/billySquat.png",
+            "images/nonstore/billySquat.png",
+            "images/nonstore/billy.png"
+        }, 0.1)
+    elseif animation == "blink" then
+        loadAnimation({
+            "images/nonstore/billy.png",
+            "images/nonstore/billyEyesClosed.png",
+            "images/nonstore/billy.png" 
+        }, 0.1)
+    end
 end
 
 function drawStats()
@@ -72,7 +77,7 @@ function drawStats()
     font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 16)
     love.graphics.setColor(0,0,0)
     love.graphics.print("Money: " .. data["money"], font, 5, 15)
-    love.graphics.print("XP: " .. math.floor(data["xp"]) .. " / " .. math.floor(math.sqrt(data["level"])*100), font, 250, 15)
+    love.graphics.print("XP: " .. math.floor(data["xp"]) .. " / " .. math.floor(math.sqrt(data["level"])*100), font, 230, 15)
     love.graphics.print("Level: " .. data["level"], font, 400, 15)
-    love.graphics.print("Streak: " .. data["streak"], font, 135, 15)
-end 
+    love.graphics.print("Streak: " .. data["streak"], font, 125, 15)
+end

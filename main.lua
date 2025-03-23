@@ -39,6 +39,7 @@ function love.load()
     endOfDay()
     loadTasks()
 
+    setAnimation("idle")
 end
 
 function love.update(dt)
@@ -46,11 +47,11 @@ function love.update(dt)
 end
 
 function love.draw()
+    local currentAnimation = "idle"
     love.graphics.scale(scale_factor, scale_factor)
     
     if currPage == "Main" or currPage == "Shop" then
         displayImage("images/nonstore/background.png", 0, 0)
-        animateIdle()
         drawIdle((507/2) - 100, 150)
     end    
     
