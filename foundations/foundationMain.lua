@@ -1,6 +1,7 @@
 require("RGBConverter")
 require("foundations/foundationGlobal")
 require("DisplayData/displayDataMain")
+require("task")
 
 -- do not touch
 local taskbary = 0;
@@ -62,23 +63,14 @@ function pressTasksList(x,y)
     end
 end
 
-function markTaskComplete(taskId)
-    for _, task in ipairs(tasksList) do
-        if task.id == taskId then
-            task.completed = true
-            print("Task " .. task.name .. " completed!")
-            break
+function markTaskOnClick(x, y)
+    pressTasksList(x, y)
+
+    if selectedTaskIndex then
+        local task = taskList[selectedTaskIndex]
+        if task then
+            task:complete() 
         end
     end
 end
 
-function markTaskOnClick(x, y)
-    -- Detect which task is clicked
-    pressTasksList(x, y)
-    
-    -- If a task is selected, mark it as complete
-    if selectedTaskIndex then
-        local task = taskList[selectedTaskIndex]
-        markTaskComplete(task.id)  -- Mark the selected task as complete by its ID
-    end
-end
