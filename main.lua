@@ -19,14 +19,13 @@ font = setGlobalFont()
 function love.load()
     font = love.graphics.newFont(24)
     love.window.setMode(0, 0)
-    screen_width = 507 -- this is the only thing that affects scale
-    screen_height = 900
+    screen_width = 507--love.graphics.getWidth() -- this is the only thing that affects scale
+    screen_height = 900 --love.graphics.getHeight()
     print(screen_width)
     print(screen_height)
-    love.window.setMode(507, 900)
+    love.window.setMode(screen_width, screen_height)
     local target_width = 507
     local target_height = 900
-    love.window.setMode(target_width, target_height)
     scale_x = screen_width / target_width
     scale_y = screen_height / target_height
 
