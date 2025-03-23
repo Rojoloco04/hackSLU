@@ -1,0 +1,5 @@
+require("foundations/foundationMain")
+require("foundations/foundationGlobal")
+require("foundations/foundationShop")
+require("foundations/foundationSettings")
+require("foundations/foundationResources")

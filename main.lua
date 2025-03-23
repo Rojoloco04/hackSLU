@@ -4,13 +4,9 @@ require("task")
 require("item")
 require("data")
 require("shopManager")
-require("foundationMain")
-require("foundationGlobal")
-require("foundationShop")
-require("foundationSettings")
-require("foundationResources")
 require("Billy")
 require("addTask")
+require("foundations/init")
 
 currPage = "Resources" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
