@@ -36,6 +36,7 @@ function love.load()
     -- testing
     startUp()
     endOfDay()
+    loadTasks()
 
     testItem = item.new(2, "book", 10, "images/book.png")
     purchase(testItem)
@@ -48,7 +49,6 @@ function love.load()
     addActiveTask(testTask)
     testTask:complete()
 
-    loadTasks()
     for _, task in ipairs(taskList) do
         print(task)
     end
