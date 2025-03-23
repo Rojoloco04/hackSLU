@@ -18,20 +18,20 @@ data = readUserData()
 function love.load()
 
     -- ON SOMETHING
-    -- idle = loadAnimation({
-    -- "images/nonstore/billy.png", 
-    -- "images/nonstore/billyWave1.png",
-    -- "images/nonstore/billyWave2.png",
-    -- "images/nonstore/billyWave3.png",
-    -- "images/nonstore/billyWave3.png",
-    -- "images/nonstore/billyWave2.png",
-    -- "images/nonstore/billyWave1.png",
-    -- "images/nonstore/billy.png"}, 0.1)
+    idle = loadAnimation({
+    "images/nonstore/billy.png", 
+    "images/nonstore/billyWave1.png",
+    "images/nonstore/billyWave2.png",
+    "images/nonstore/billyWave3.png",
+    "images/nonstore/billyWave3.png",
+    "images/nonstore/billyWave2.png",
+    "images/nonstore/billyWave1.png",
+    "images/nonstore/billy.png"}, 0.1)
 
     -- blink = loadAnimation({
     -- "images/nonstore/billy.png",
     -- "images/nonstore/billyEyesClosed.png",
-    -- "images/nonstore/billy.png"
+    -- "images/nonstore/billy.png" 
     -- }, 0.1)
 
     -- jump = loadAnimation({ -_ON LEVEL UP

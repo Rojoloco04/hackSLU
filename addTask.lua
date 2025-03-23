@@ -10,9 +10,23 @@ local textBoxX, textBoxY = 27,300
 local boxX = textBoxX - sizedifX
 local boxY = 280
 local buttonX, buttonY, buttonRadius = 465, 728, 30
+
+function drawPlus(x, y)
+    love.graphics.setColor(0, 0, 0)
+
+    -- Draw the even larger vertical line of the cross
+    love.graphics.rectangle("fill", x - 2, y - 15, 5, 30)  -- Even larger vertical rectangle
+
+    -- Draw the even larger horizontal line of the cross
+    love.graphics.rectangle("fill", x - 15, y - 3, 30, 5)  -- Even larger horizontal rectangle
+end
+
+
+
 function drawTaskButton(x,y)
-    love.graphics.setColor(0,0,0,1)
+    love.graphics.setColor(1,1,1)
     love.graphics.circle("fill", buttonX,buttonY,buttonRadius)
+    drawPlus(buttonX, buttonY)
     
     if addTaskclicked then
         love.graphics.setColor(0,0,0,.7)
