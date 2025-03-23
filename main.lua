@@ -9,6 +9,7 @@ require("init")
 require("assets/globalFont")
 require("animations/displayImage")
 require("animations/animate")
+require("itemData")
 
 items = {}
 images = {}
@@ -39,7 +40,6 @@ function love.load()
     endOfDay()
     loadTasks()
 
-    setAnimation("idle")
 end
 
 function love.update(dt)

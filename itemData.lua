@@ -72,15 +72,6 @@ function updateItem(itemID, newData)
     return false
 end
 
-function loadItems()
-    local data = readItemData()
-    itemList = {}
-    for _, item in item do
-        local newTask = Task.new(task)
-        table.insert(taskList, newTask)
-    end
-end
-
 return {
     readItemData     = readItemData,
     writeItemData    = writeItemData,

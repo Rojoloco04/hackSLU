@@ -122,6 +122,8 @@ function levelUp()
     data["level"] = data["level"] + 1
     setAnimation("jump")
     writeUserData(data)
+
+    
 end
 
 function resetLevel()
