@@ -27,6 +27,7 @@ function startUp()
     data["streak"] = data["streak"] or 0
     data["name"] = data["name"] or ""
     data["items"] = data["items"] or {}
+    data["tasks"] = data["tasks"] or {}
     writeUserData(data)
 end
 
@@ -140,5 +141,28 @@ function itemExists(item)
     end
     return exists
 end
+
+-- task tracking
+function addActiveTask(task)
+    local data = readUserData()
+    if not activeTaskExists(task) then
+        table.insert(data["tasks"], task.name)
+    end
+    writeUserData(data)
+end
+
+function activeTaskExists(task)
+    local data = readUserData()
+    local exists = false
+    for _, existingID in ipairs(data["tasks"]) do
+        if existingID == task.name then
+            exists = true
+            break
+        end
+    end
+    return exists
+end
+
+
 
 return data

@@ -1,13 +1,14 @@
 item = {}
 item.__index = item
 
-function item.new(id,name,price,bought,image)
+function item.new(id,name,price,image)
     temp = {}
     setmetatable(temp,item)
     temp.id = id
     temp.name = name
     temp.price = price
     temp.image = love.graphics.newImage(image)
+    
     return temp
 end
 

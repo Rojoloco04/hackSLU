@@ -20,13 +20,18 @@ function love.load()
     -- testing
     startUp()
 
-    testItem = item.new(2, "book", 10, false, "images/book.png")
+    testItem = item.new(1, "book", 10, "images/book.png")
     purchase(testItem)
 
     changeName("Jack")
     print(getName())
     streakUp()
     print(getStreak())
+
+    testTask = Task.new("Clean House")
+    addActiveTask(testTask)
+    testTask = Task.new("Wash Dishes")
+    addActiveTask(testTask)
 end
 
 function love.update(dt)

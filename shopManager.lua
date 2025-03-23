@@ -4,6 +4,7 @@ require("data")
 
 function purchase(item)
     if not itemExists(item) then
+        money = getMoney()
         if money >= item.price then
             updateMoney("sub", item.price)
             addItem(item)
