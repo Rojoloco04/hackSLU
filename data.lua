@@ -236,11 +236,11 @@ function endOfDay()
 
     if curDateNum > dueDateNum then
         if #data["tasks"] > 0 then
-            resetStreak()
             print("Streak broken!")
+            resetStreak()
         else
-            streakUp()
             print("Streak maintained!")
+            streakUp()
         end
     end
 
