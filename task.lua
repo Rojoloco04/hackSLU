@@ -1,10 +1,9 @@
 Task = {}
 Task.__index = Task
 
--- this is useless
-function Task.new(name)
-    local instance = {}
-    setmetatable(instance,Task) 
+function Task:new(name)
+    local instance = setmetatable({}, self)
+    self.__index = self
     instance.name = name
     return instance
 end

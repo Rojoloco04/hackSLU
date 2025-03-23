@@ -6,6 +6,6 @@ function displayDataMain()
     local basey = 331
     local gap = 6
     for i, task in ipairs(taskList) do
-        love.graphics.print(task, font, 40, basey + (i - 1) * (78 + gap))
+        love.graphics.print(task.name, font, 40, basey + (i - 1) * (78 + gap))
     end
 end

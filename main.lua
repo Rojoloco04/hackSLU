@@ -34,8 +34,6 @@ function love.load()
     startUp()
     endOfDay()
     loadTasks()
-
-    removeActiveTask("Drink water")
 end
 
 function love.update(dt)
