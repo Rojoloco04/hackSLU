@@ -6,41 +6,33 @@ function Task.new(name)
     local instance = {}
     setmetatable(instance,Task) 
     instance.name = name
-    instance.completed = false
     instance.deadline = Task.deadline()
     return instance
 end
 
 function Task:complete()
-    self.completed = true
-    print("Task " .. self.name .. " marked as completed.")
+    local data = readUserData()
+    for key, task in ipairs(data["tasks"]) do
+        if task == self.name then
+            table.remove(data["tasks"], key)
+            print("Task " .. self.name .. " has been completed.")
+            writeUserData(data)
+            -- reward for completing task
+            addXP(10)
+            updateMoney("add", 5)
+            return
+        end
+    end
+    print("Task not found")
 end
 
 function Task:isAllComplete()
+    local data = readUserData()
     local allCompleted = true
-    for i=1,#taskList do 
-        if taskList[i].completed ~= false or taskList[i].isOverdue() then
-            allCompleted = false
-            break
-        end
+    if data["tasks"] ~= {} then
+        return false
     end
-
-    print("all tasks completed")
-    return allCompleted
-end
-
-
-function Task:display()
-    print("Task: " .. self.name)
-    local status
-
-    if self.completed == true then 
-        status = "Finished"
-    elseif self.completed == false then
-        status = "Not Finished"
-    end
-    
-    print("Status: " .. status)
+    return true
 end
 
 -- NEEDS TO BE UPDATED!!!!
@@ -80,8 +72,7 @@ end
 -- end
 
 function Task:streak()
-    if self.isAllComplete(taskList) == true then
-        print("Ongoing")
+    if self.isAllComplete(taskList) then
         streakUp()
     else 
         print("Streak broken")
