@@ -51,11 +51,6 @@ end
 function love.draw()
     local currentAnimation = "idle"
     love.graphics.scale(scale_factor, scale_factor)
-
-    
-
-    
-
     
     if currPage == "Main" then
         drawMain()
