@@ -19,6 +19,7 @@ function drawPlus(x, y)
 
     -- Draw the even larger horizontal line of the cross
     love.graphics.rectangle("fill", x - 15, y - 3, 30, 5)  -- Even larger horizontal rectangle
+    love.graphics.setColor(1, 1, 1)
 end
 
 
