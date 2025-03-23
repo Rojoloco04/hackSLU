@@ -63,10 +63,34 @@ function getXP()
     return data["xp"]
 end
 
--- xp mutator
+-- xp mutators
 function addXP(amount)
     local data = readUserData()
     data["xp"] = data["xp"] + amount
+    writeUserData(data)
+    levelCheck()
+end
+
+function setXP(amount)
+    local data = readUserData()
+    data["xp"] = amount
+    writeUserData(data)
+end
+
+-- level check, when XP gained
+function levelCheck()
+    local data = readUserData()
+    local curXP = data["xp"]
+    local curLV = data["level"]
+
+    while curXP > math.sqrt(curLV) * 10 do
+        curXP = curXP - (math.sqrt(curLV) * 10)
+        curLV = curLV + 1
+        print("Level up!")
+    end
+
+    data["xp"] = curXP
+    data["level"] = curLV
     writeUserData(data)
 end
 
@@ -80,6 +104,7 @@ end
 function levelUp()
     local data = readUserData()
     data["level"] = data["level"] + 1
+    print("Level up!")
     writeUserData(data)
 end
 
