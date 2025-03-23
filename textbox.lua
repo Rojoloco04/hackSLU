@@ -1,6 +1,6 @@
 package.path = package.path .. ";./?.lua"
 require("task")
-
+require("data")
 textbox = {}
 textbox.__index = textbox
 
@@ -122,7 +122,8 @@ end
 function textbox:createTask()
     local newTask = Task.new(self:getText())
     print("created new task with name " .. newTask.name)
-    table.insert(taskList,newTask)
+    addActiveTask(newTask)
+    loadTasks()
     self:setText("")
 end
 

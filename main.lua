@@ -17,7 +17,6 @@ data = readUserData()
 function love.load()
     font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 20)
     love.graphics.setFont(font)
-
     love.window.setMode(0, 0)
     screen_width = 507--love.graphics.getWidth() -- this is the only thing that affects scale
     screen_height = 900 --love.graphics.getHeight()

@@ -189,6 +189,7 @@ end
 -- load tasks from json
 function loadTasks()
     local data = readUserData()
+    taskList = {}
     for _, task in ipairs(data["tasks"]) do
         table.insert(taskList, task)
     end

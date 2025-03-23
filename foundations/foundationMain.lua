@@ -14,17 +14,19 @@ function buildTaskWindows()
     love.graphics.setColor(convertRGB(83, 195, 238))
     local basey = 310
     local gap = 10
-    for i=1,2 do
+    for i=1,#taskList do
         love.graphics.rectangle("fill", 30, basey + (i - 1) * (78 + gap), 447, 78, 15)
         taskbary = basey + (i - 1) * (78 + gap)
     end
 end
 
 function drawMain()
+    
     buildTaskContainer()
-    displayDataMain()
     buildTaskWindows()
+    displayDataMain()
     drawTaskButton()
+    
     
     currPage = "Main"
 end
