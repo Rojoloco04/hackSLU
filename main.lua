@@ -23,10 +23,9 @@ function love.load()
     screen_height = 900
     print(screen_width)
     print(screen_height)
-    love.window.setMode(507, 900)
+    love.window.setMode(screen_width, screen_height)
     local target_width = 507
     local target_height = 900
-    love.window.setMode(target_width, target_height)
     scale_x = screen_width / target_width
     scale_y = screen_height / target_height
 
