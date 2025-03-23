@@ -8,6 +8,7 @@ require("addTask")
 require("init")
 require("assets/globalFont")
 require("animations/displayImage")
+require("animations/BillyIdle")
 
 
 taskList = {}
@@ -15,6 +16,33 @@ currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE 
 data = readUserData()
 
 function love.load()
+
+    -- ON SOMETHING
+    -- idle = loadAnimation({
+    -- "images/nonstore/billy.png", 
+    -- "images/nonstore/billyWave1.png",
+    -- "images/nonstore/billyWave2.png",
+    -- "images/nonstore/billyWave3.png",
+    -- "images/nonstore/billyWave3.png",
+    -- "images/nonstore/billyWave2.png",
+    -- "images/nonstore/billyWave1.png",
+    -- "images/nonstore/billy.png"}, 0.1)
+
+    -- blink = loadAnimation({
+    -- "images/nonstore/billy.png",
+    -- "images/nonstore/billyEyesClosed.png",
+    -- "images/nonstore/billy.png"
+    -- }, 0.1)
+
+    -- jump = loadAnimation({ -_ON LEVEL UP
+    --     "images/nonstore/billy.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billySquat.png"
+    --     "images/nonstore/billy.png"
+    -- }, 0.1)
+
     font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 20)
     love.graphics.setFont(font)
     love.window.setMode(0, 0)
@@ -40,7 +68,7 @@ function love.load()
 end
 
 function love.update(dt)
-    
+    updateAnimation(dt)
 end
 
 function love.draw()
@@ -48,7 +76,9 @@ function love.draw()
     
     if currPage == "Main" or currPage == "Shop" then
         displayImage("images/background.png", 0, 0)
+        drawIdle((507/2) - 100, 150)
     end    
+    
     buildGlobal()
     
     if currPage == "Main" then
