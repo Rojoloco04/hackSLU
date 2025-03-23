@@ -50,13 +50,9 @@ function love.draw()
     local currentAnimation = "idle"
     love.graphics.scale(scale_factor, scale_factor)
     
-    if currPage == "Main" or currPage == "Shop" then
-        displayImage("images/nonstore/background.png", 0, 0)
-        drawIdle((507/2) - 100, 150)
-    end    
+
     
-    buildGlobal()
-    drawStats()
+
     
     if currPage == "Main" then
         drawMain()
@@ -69,19 +65,24 @@ function love.draw()
     else
         error("Incorrect Page")
     end
-
+    if currPage == "Main" or currPage == "Shop" then
+        displayImage("images/nonstore/background.png", 0, 0)
+        drawIdle((507/2) - 100, 150)
+    end    
+    buildGlobal()
+    drawStats()
 end
 
 function love.mousepressed(x,y,button)
     testTextbox:mousepressed(x,y,button)
     anotherTextbox:mousepressed(x,y,button)
     if currPage == "Main" then
-        interactTaskButton(x,y)
         if not addTaskclicked then
             pressTasksList(x,y)
             markTaskOnClick(x, y)
             loadTasks()
         end
+        interactTaskButton(x,y)
     elseif currPage == "Shop" then
         interactShopButton(x,y)
     end
