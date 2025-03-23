@@ -227,19 +227,25 @@ end
 
 -- update streak, give rewards at end of day if no tasks left
 function endOfDay()
-    curDate = currentDate()
-    for key, field in ipairs(data["dueDate"]) do
-        if field > curDate[key] then -- day is over
-        local data = readUserData()
-            if #data["tasks"] > 0 then -- tasks remaining
-                resetStreak()
-                print("Streak broken!")
-            else
-                streakUp()
-                print("Streak maintained!")
-            end
+    local data = readUserData()
+    local curDate = currentDate()
+
+    -- format into YYYYMMDD integer
+    local dueDateNum = data["dueDate"][1] * 10000 + data["dueDate"][2] * 100 + data["dueDate"][3]
+    local curDateNum = curDate[1] * 10000 + curDate[2] * 100 + curDate[3]
+
+    if curDateNum > dueDateNum then
+        if #data["tasks"] > 0 then
+            resetStreak()
+            print("Streak broken!")
+        else
+            streakUp()
+            print("Streak maintained!")
         end
     end
+
+    -- update to new due date
+    storeDueDate(currentDate())
 end
 
 return data
