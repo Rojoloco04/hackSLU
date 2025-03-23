@@ -9,6 +9,7 @@ require("addTask")
 require("init")
 require("assets/globalFont")
 
+
 currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
 taskList = {}
 data = readUserData()
@@ -20,44 +21,27 @@ function love.load()
     love.window.setMode(0, 0)
     screen_width = 507--love.graphics.getWidth() -- this is the only thing that affects scale
     screen_height = 900 --love.graphics.getHeight()
-    print(screen_width)
-    print(screen_height)
     love.window.setMode(screen_width, screen_height)
     local target_width = 507
     local target_height = 900
     scale_x = screen_width / target_width
     scale_y = screen_height / target_height
-
+    
     scale_factor = scale_x
     testTextbox = textbox.create(150,150,1000,16,"TASK")
     anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
-
+    
     -- testing
     startUp()
     endOfDay()
     loadTasks()
-
-    testItem = item.new(2, "book", 10, "images/book.png")
-    purchase(testItem)
-
-    changeName("Jack")
-    print(getName())
-    print(getStreak())
-  
-    testTask = Task.new("Clean car")
-    addActiveTask(testTask)
-    testTask:complete()
-
-    for _, task in ipairs(taskList) do
-        print(task)
-    end
-
-    date = currentDate()
-    storeDueDate(date)
+    task1 = Task.new("tasking")
+    addActiveTask(task1)
+    print("TASK LIST LENGTH"..#taskList)
 end
 
 function love.update(dt)
-
+    
 end
 
 function love.draw()
@@ -91,7 +75,7 @@ function love.mousepressed(x,y,button)
     elseif currPage == "Shop" then
         interactShopButton(x,y)
     end
-
+    
 end
 
 function love.keypressed(key)
