@@ -1,6 +1,7 @@
 Task = {}
 Task.__index = Task
 
+-- this is useless
 function Task.new(name)
     local instance = {}
     setmetatable(instance,Task) 
