@@ -123,6 +123,14 @@ end
 -- item tracking
 function addItem(item)
     local data = readUserData()
+    if not itemExists(item) then
+        table.insert(data["items"], item.id)
+    end
+    writeUserData(data)
+end
+
+function itemExists(item)
+    local data = readUserData()
     local exists = false
     for _, existingID in ipairs(data["items"]) do
         if existingID == item.id then
@@ -130,8 +138,7 @@ function addItem(item)
             break
         end
     end
-    if not exists then
-        table.insert(data["items"], item.id)
-    end
-    writeUserData(data)
+    return exists
 end
+
+return data
