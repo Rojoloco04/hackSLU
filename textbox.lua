@@ -34,6 +34,17 @@ function textbox:draw()
         love.graphics.setColor(.5,.5,.5,.75)
     end
 	love.graphics.print(self.displayText, self.x, self.y)	
+    if self.selected then
+        local time = love.timer.getTime()
+        if math.floor(time * 2) % 2 == 0 then
+            local textWidth = self.font:getWidth(self.displayText)
+            if self.displayText == "Start typing" then
+                textWidth = 0
+            end
+            love.graphics.setColor(0, 0, 0, 1)
+            love.graphics.line(self.x + textWidth + 2, self.y, self.x + textWidth + 2, self.y + self.height)
+        end
+    end
 end
 
 function textbox:update()
