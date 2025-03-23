@@ -32,6 +32,11 @@ function love.load()
     addActiveTask(testTask)
     testTask:complete()
 
+    testTask = Task.new("Clean house")
+    addActiveTask(testTask)
+    testTask = Task.new("Buy groceries")
+    addActiveTask(testTask)
+
     loadTasks()
     for _, task in ipairs(taskList) do
         print(task)
