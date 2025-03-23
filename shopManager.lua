@@ -3,9 +3,9 @@ require("item")
 require("data")
 
 function purchase(item)
-    if not itemExists(item) then
-        money = getMoney()
-        level = getLevel()
+    if not itemExists(item.id) then  -- Ensure the item is not already purchased based on ID
+        local money = getMoney()
+        local level = getLevel()
         if money >= item.price and level >= item.lvlReq then
             updateMoney("sub", item.price)
             addItem(item)
@@ -19,49 +19,42 @@ function purchase(item)
 end
 
 function pressItemList(x,y)
-    local taskCenters = {}
+    local itemCenters = {}
 
-    for i = 1, #items do
-        local taskY = basey + (i - 1) * (78 + gap)
+    for i = 1, 5 do
+        local itemY = basey + (i - 1) * (78 + gap)
     
 
-        local centerX = 30 + (447 / 2)  * scale_factor
-        local centerY = taskY + (78 / 2) *scale_factor
-        table.insert(taskCenters, {x = centerX, y = centerY})
+        local centerX = 30 + (447 / 2)  * scale_factor -20
+        local centerY = itemY + (65 / 2) *scale_factor -20
+        table.insert(itemCenters, {x = centerX, y = centerY})
     end
     local radius = 78 / 2 * scale_factor
-    for i = 1, #taskCenters do
-        local distanceM = distanceFromCircleButton(x, y, taskCenters[i].x, taskCenters[i].y, radius)
-        local distanceL = distanceFromCircleButton(x, y, taskCenters[i].x-39, taskCenters[i].y, radius)
-        local distanceR = distanceFromCircleButton(x, y, taskCenters[i].x+39, taskCenters[i].y, radius)
-        local distanceLL = distanceFromCircleButton(x, y, taskCenters[i].x-39*2, taskCenters[i].y, radius)
-        local distanceLLL = distanceFromCircleButton(x, y, taskCenters[i].x-39*3, taskCenters[i].y, radius)
-        local distanceRR = distanceFromCircleButton(x, y, taskCenters[i].x+39*2, taskCenters[i].y, radius)
-        local distanceRRR = distanceFromCircleButton(x, y, taskCenters[i].x+39*3, taskCenters[i].y, radius)
-        local distanceRRRR = distanceFromCircleButton(x, y, taskCenters[i].x+39*4, taskCenters[i].y, radius)
-        local distanceLLLL = distanceFromCircleButton(x, y, taskCenters[i].x-39*4, taskCenters[i].y, radius)
+    for i = 1, #itemCenters do
+        local distanceM = distanceFromCircleButton(x, y, itemCenters[i].x, itemCenters[i].y, radius)
+        local distanceL = distanceFromCircleButton(x, y, itemCenters[i].x-39, itemCenters[i].y, radius)
+        local distanceR = distanceFromCircleButton(x, y, itemCenters[i].x+39, itemCenters[i].y, radius)
+        local distanceLL = distanceFromCircleButton(x, y, itemCenters[i].x-39*2, itemCenters[i].y, radius)
+        local distanceLLL = distanceFromCircleButton(x, y, itemCenters[i].x-39*3, itemCenters[i].y, radius)
+        local distanceRR = distanceFromCircleButton(x, y, itemCenters[i].x+39*2, itemCenters[i].y, radius)
+        local distanceRRR = distanceFromCircleButton(x, y, itemCenters[i].x+39*3, itemCenters[i].y, radius)
+        local distanceRRRR = distanceFromCircleButton(x, y, itemCenters[i].x+39*4, itemCenters[i].y, radius)
+        local distanceLLLL = distanceFromCircleButton(x, y, itemCenters[i].x-39*4, itemCenters[i].y, radius)
         -- I know this is god awful, but it works and im tired
         local distance = math.min(distanceM, distanceL, distanceR, distanceLL, distanceRR, distanceLLL, distanceRRR, distanceRRRR, distanceLLLL)
 
 
-        if distance <= 78 / 2 then
+        if distance <= radius then
             selectedItemIndex = i
-            print("pressed task" .. i) 
+            print("pressed item " .. i)
+            -- Call purchase here, but only once an item is selected.
+            local curItem = items[currentPage * 5 + selectedItemIndex]
+            if curItem then
+                purchaseItem(curItem)
+            end
         end
     end
 end
-
-function markItemonClick(x, y)
-    pressItemList(x, y)
-
-    if selectedItem then
-        local curItem = items[selectedItemIndex]
-        if curItem then
-            purchase(item) 
-        end
-    end
-end
-
 
 function interactItemButton(x, y)
     local scaled_buttonX = buttonX * scale_factor

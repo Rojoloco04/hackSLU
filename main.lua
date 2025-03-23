@@ -83,9 +83,10 @@ function love.mousepressed(x,y,button)
         interactTaskButton(x,y)
     elseif currPage == "Shop" then
         interactShopButton(x,y)
-        pressItemList(x,y)
-        markItemonClick(x,y)
-        getAllItems()
+            if not addItemclicked then
+            pressItemList(x,y)
+            getAllItems()
+        end
     end
     globalPress(x,y)
 end

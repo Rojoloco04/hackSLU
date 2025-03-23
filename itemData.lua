@@ -30,8 +30,7 @@ function writeItemData(data)
 end
 
 function getAllItems()
-    local items = readItemData()
-    return items
+    table.insert(items,readItemData())
 end
 
 function getItemByID(itemID)

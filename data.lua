@@ -175,18 +175,16 @@ function itemExistsByID(itemID)
     return false
 end
 
-function purchaseItem(itemID)
+function purchaseItem(item)
     local data = readUserData()
     
-    for _, item in ipairs(data["items"]) do
-        if item.id == itemID then
-            if data["money"] >= item.cost and data["level"] >= item.levelReq then
-                data["money"] = data["money"] - item.cost
-                item.purchased = true
-                print("Item purchased: " .. itemID)
+    for _, curItem in ipairs(items) do
+        if curItem.id == item.id then
+            if data["money"] >= item.price and data["level"] >= item.lvlReq then
+                data["money"] = data["money"] - item.price
+                print("Item purchased: " .. item.id)
+                table.insert(data["items"], item)
                 writeUserData(data)
-
-                table.insert(items, item)
                 return
             else
                 print("Not enough money or level too low.")
@@ -202,7 +200,7 @@ end
 function itemExists(item)
     local data = readUserData()
     for _, existingID in ipairs(data["items"]) do
-        if existingID == item.id then
+        if existingID == item then
             return true
         end
     end

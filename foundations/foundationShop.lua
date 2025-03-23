@@ -55,7 +55,7 @@ end
 -- Load images from the shop directory
 loadImagesFromDirectory(imagePath)
 
-local currentPage = 1
+currentPage = 1
 
 -- Build shop container
 function buildShopContainer()
