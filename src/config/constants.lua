@@ -38,7 +38,7 @@ local Constants = {
     -- File paths
     USER_DATA_FILE = "userdata.json",
     ITEM_DATA_FILE = "itemdata.json",
-    FONT_PATH = "assets/Silkscreen-Regular.ttf",
+    FONT_PATH = "assets/fonts/Silkscreen-Regular.ttf",
     
     -- Scene names
     SCENES = {

@@ -8,35 +8,35 @@ local AnimationManager = {
         idle = {
             frames = {},
             framePaths = {
-                "images/nonstore/billy.png", 
-                "images/nonstore/billyWave1.png",
-                "images/nonstore/billyWave2.png",
-                "images/nonstore/billyWave3.png",
-                "images/nonstore/billyWave3.png",
-                "images/nonstore/billyWave2.png",
-                "images/nonstore/billyWave1.png",
-                "images/nonstore/billy.png"
+                "assets/images/nonstore/billy.png", 
+                "assets/images/nonstore/billyWave1.png",
+                "assets/images/nonstore/billyWave2.png",
+                "assets/images/nonstore/billyWave3.png",
+                "assets/images/nonstore/billyWave3.png",
+                "assets/images/nonstore/billyWave2.png",
+                "assets/images/nonstore/billyWave1.png",
+                "assets/images/nonstore/billy.png"
             },
             frameDelay = 0.1
         },
         jump = {
             frames = {},
             framePaths = { 
-                "images/nonstore/billy.png",
-                "images/nonstore/billySquat.png",
-                "images/nonstore/billySquat.png",
-                "images/nonstore/billySquat.png",
-                "images/nonstore/billySquat.png",
-                "images/nonstore/billy.png"
+                "assets/images/nonstore/billy.png",
+                "assets/images/nonstore/billySquat.png",
+                "assets/images/nonstore/billySquat.png",
+                "assets/images/nonstore/billySquat.png",
+                "assets/images/nonstore/billySquat.png",
+                "assets/images/nonstore/billy.png"
             },
             frameDelay = 0.1
         },
         blink = {
             frames = {},
             framePaths = {
-                "images/nonstore/billy.png",
-                "images/nonstore/billyEyesClosed.png",
-                "images/nonstore/billy.png" 
+                "assets/images/nonstore/billy.png",
+                "assets/images/nonstore/billyEyesClosed.png",
+                "assets/images/nonstore/billy.png" 
             },
             frameDelay = 0.1
         }

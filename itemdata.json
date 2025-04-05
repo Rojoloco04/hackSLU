@@ -7,13 +7,6 @@
       "filepath": "assets/images/shop/blackShorts.png"
     },
     {
-      "id": "blueBelt",
-      "name": "blueBelt.png",
-      "levelRequirement": 2,
-      "cost": 75,
-      "filepath": "assets/images/shop/blueBelt.png"
-    },
-    {
       "id": "book",
       "name": "book.png",
       "levelRequirement": 1,
@@ -26,13 +19,6 @@
       "levelRequirement": 1,
       "cost": 30,
       "filepath": "assets/images/shop/cat.png"
-    },
-    {
-      "id": "corgi",
-      "name": "corgi.png",
-      "levelRequirement": 2,
-      "cost": 50,
-      "filepath": "assets/images/shop/corgi.png"
     },
     {
       "id": "darkGreenShirt",
