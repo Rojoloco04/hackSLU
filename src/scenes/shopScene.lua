@@ -26,7 +26,7 @@ function ShopScene.draw()
     love.graphics.setBackgroundColor(0.8, 0.8, 0.8)
     
     -- Draw background image
-    local backgroundImage = love.graphics.newImage("images/nonstore/background.png")
+    local backgroundImage = love.graphics.newImage("assets/images/nonstore/background.png")
     love.graphics.draw(backgroundImage, 0, 0)
     
     -- Draw character in the center
