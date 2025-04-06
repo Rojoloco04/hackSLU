@@ -26,6 +26,7 @@ function MainScene.draw()
     
     -- Draw background image
     local backgroundImage = love.graphics.newImage("assets/images/nonstore/background.png")
+    love.graphics.setColor(1,1,1,1)
     love.graphics.draw(backgroundImage, 0, 0)
     
     -- Draw character in the center

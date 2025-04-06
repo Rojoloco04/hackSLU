@@ -1,16 +1,16 @@
 {
-  "items":[],
-  "tasks":[],
   "dueDate":{
-    "day":6,
-    "hour":0,
     "minute":0,
     "year":2025,
-    "month":4
+    "month":4,
+    "day":6,
+    "hour":0
   },
   "money":0,
   "xp":0,
   "level":1,
   "streak":0,
-  "name":""
+  "name":"",
+  "items":[],
+  "tasks":["adsf","Make your bed"]
 }
