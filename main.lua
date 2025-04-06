@@ -1,94 +1,127 @@
+-- main.lua
+-- Main entry point for Billiken Balance application
+
+-- Add source directory to path
 package.path = package.path .. ";./?.lua"
-require("textbox")
-require("task")
-require("item")
-require("data")
-require("shopManager")
-require("addTask")
-require("init")
-require("assets/globalFont")
-require("animations/displayImage")
-require("animations/animate")
-require("itemData")
 
-items = {}
-images = {}
-taskList = {}
-currPage = "Main" --WHEN USER PRESSES PAGE CHANGE THIS VALUE TO ONE OF THE PAGE STRINGS
-data = readUserData()
+-- Import required modules
+local Constants = require("src.config.constants")
+local DataService = require("src.services.dataService")
+local UserManager = require("src.managers.userManager")
+local AnimationManager = require("src.managers.animationManager")
+local TaskManager = require("src.managers.taskManager")
+local Navigation = require("src.ui.navigation")
 
+-- Scene modules
+local MainScene = require("src.scenes.mainScene")
+local ShopScene = require("src.scenes.shopScene")
+local ResourcesScene = require("src.scenes.resourcesScene")
+local ActivityScene = require("src.scenes.activityScene")
+
+-- Current scene
+local currentScene = "Main"
+local scenes = {}
+local scale_factor = 1
+
+-- Initialize the application
 function love.load()
-    font = love.graphics.newFont("assets/Silkscreen-Regular.ttf", 20)
-    love.graphics.setFont(font)
+    -- Set up window
     love.window.setMode(0, 0)
-
-    screen_width = 507--love.graphics.getWidth() -- this is the only thing that affects scale
-    screen_height = 900 --love.graphics.getHeight()
+    local screen_width = Constants.WINDOW_WIDTH
+    local screen_height = Constants.WINDOW_HEIGHT
     love.window.setMode(screen_width, screen_height)
-
-    local target_width = 507
-    local target_height = 900
-    scale_x = screen_width / target_width
-    scale_y = screen_height / target_height
     
+    -- Calculate scale factor
+    local scale_x = screen_width / Constants.WINDOW_WIDTH
+    local scale_y = screen_height / Constants.WINDOW_HEIGHT
     scale_factor = scale_x
-    testTextbox = textbox.create(150,150,1000,16,"TASK")
-    anotherTextbox = textbox.create(150,300,1000,15,"NOTTASK")
     
-    -- initialization
-    startUp()
-    endOfDay()
-    loadTasks()
-    getAllItems()
-
-    setAnimation("idle")
+    -- Initialize data
+    DataService.initializeUserData()
+    DataService.processEndOfDay()
+    
+    -- Initialize managers
+    AnimationManager.initialize()
+    TaskManager.initialize()
+    Navigation.initialize(currentScene)
+    
+    -- Set up scene change callback
+    Navigation.setOnPageChange(function(newScene)
+        currentScene = newScene
+    end)
+    
+    -- Initialize scenes
+    scenes[Constants.SCENES.MAIN] = MainScene
+    scenes[Constants.SCENES.SHOP] = ShopScene
+    scenes[Constants.SCENES.RESOURCES] = ResourcesScene
+    scenes[Constants.SCENES.ACTIVITIES] = ActivityScene
+    
+    -- Initialize each scene
+    for _, scene in pairs(scenes) do
+        if scene.initialize then
+            scene.initialize()
+        end
+    end
 end
 
+-- Update game state
 function love.update(dt)
-    updateAnimation(dt)
+    -- Update animation system
+    AnimationManager.update(dt)
+    
+    -- Update current scene
+    local scene = scenes[currentScene]
+    if scene and scene.update then
+        scene.update(dt)
+    end
 end
 
+-- Draw everything
 function love.draw()
-    local currentAnimation = "idle"
+    -- Apply scaling
     love.graphics.scale(scale_factor, scale_factor)
     
-    if currPage == "Main" then
-        drawMain()
-    elseif currPage == "Shop" then 
-        drawShop()
-    elseif currPage == "Resources" then
-        drawResources()
-    elseif currPage == "Activities" then
-        drawActivity()
-    else
-        error("Incorrect Page")
+    -- Draw current scene
+    local scene = scenes[currentScene]
+    if scene and scene.draw then
+        scene.draw()
     end
-    if currPage == "Main" or currPage == "Shop" then
-        displayImage("images/nonstore/background.png", 0, 0)
-        drawIdle((507/2) - 100, 150)
-    end    
-    buildGlobal()
-    drawStats()
+    
+    -- Draw navigation bar
+    Navigation.draw()
 end
 
-function love.mousepressed(x,y,button)
-    testTextbox:mousepressed(x,y,button)
-    anotherTextbox:mousepressed(x,y,button)
-    if currPage == "Main" then
-        if not addTaskclicked then
-            pressTasksList(x,y)
-            markTaskOnClick(x, y)
-            loadTasks()
-        end
-        interactTaskButton(x,y)
-    elseif currPage == "Shop" then
-        interactShopButton(x,y)
+-- Handle mouse press
+function love.mousepressed(x, y, button)
+    -- Scale mouse coordinates
+    local sx = x / scale_factor
+    local sy = y / scale_factor
+    
+    -- Check navigation first
+    if Navigation.mousepressed(x, y, button, scale_factor) then
+        return
     end
-    globalPress(x,y)
+    
+    -- Then let the current scene handle it
+    local scene = scenes[currentScene]
+    if scene and scene.mousepressed then
+        scene.mousepressed(x, y, button, scale_factor)
+    end
 end
 
+-- Handle key press
 function love.keypressed(key)
-    testTextbox:keypressed(key)
-    anotherTextbox:keypressed(key)
-    typeTaskButton(key)
+    -- Let the current scene handle key press
+    local scene = scenes[currentScene]
+    if scene and scene.keypressed then
+        scene.keypressed(key)
+    end
+end
+
+-- Handle window resize
+function love.resize(w, h)
+    -- Recalculate scale factor
+    local scale_x = w / Constants.WINDOW_WIDTH
+    local scale_y = h / Constants.WINDOW_HEIGHT
+    scale_factor = scale_x
 end
