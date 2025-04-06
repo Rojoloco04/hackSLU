@@ -1,280 +1,280 @@
 [
   {
     "id": "blackShorts",
-    "name": "blackShorts.png",
+    "name": "Black Shorts",
     "levelRequirement": 1,
     "cost": 50,
     "filepath": "assets/images/shop/blackShorts.png"
   },
   {
     "id": "book",
-    "name": "book.png",
+    "name": "Book",
     "levelRequirement": 1,
     "cost": 20,
     "filepath": "assets/images/shop/book.png"
   },
   {
     "id": "cat",
-    "name": "cat.png",
+    "name": "Cat",
     "levelRequirement": 1,
     "cost": 30,
     "filepath": "assets/images/shop/cat.png"
   },
   {
     "id": "darkGreenShirt",
-    "name": "darkGreenShirt.png",
+    "name": "Dark Green Shirt",
     "levelRequirement": 3,
     "cost": 100,
     "filepath": "assets/images/shop/darkGreenShirt.png"
   },
   {
     "id": "fedora",
-    "name": "fedora.png",
+    "name": "Fedora",
     "levelRequirement": 1,
     "cost": 45,
     "filepath": "assets/images/shop/fedora.png"
   },
   {
     "id": "football",
-    "name": "football.png",
+    "name": "Football",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/football.png"
   },
   {
     "id": "greenShirt",
-    "name": "greenShirt.png",
+    "name": "Green Shirt",
     "levelRequirement": 2,
     "cost": 75,
     "filepath": "assets/images/shop/greenShirt.png"
   },
   {
     "id": "lavenderShirt",
-    "name": "lavenderShirt.png",
+    "name": "Lavender Shirt",
     "levelRequirement": 3,
     "cost": 80,
     "filepath": "assets/images/shop/lavenderShirt.png"
   },
   {
     "id": "mug",
-    "name": "mug.png",
+    "name": "Mug",
     "levelRequirement": 1,
     "cost": 20,
     "filepath": "assets/images/shop/mug.png"
   },
   {
     "id": "orangeShorts",
-    "name": "orangeShorts.png",
+    "name": "Orange Shorts",
     "levelRequirement": 1,
     "cost": 60,
     "filepath": "assets/images/shop/orangeShorts.png"
   },
   {
     "id": "orangeShirt",
-    "name": "orangeShirt.png",
+    "name": "Orange Shirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/orangeShirt.png"
   },
   {
     "id": "pinkShorts",
-    "name": "pinkShorts.png",
+    "name": "Pink Shorts",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/pinkShorts.png"
   },
   {
     "id": "pinkShirt",
-    "name": "pinkShirt.png",
+    "name": "Pink Shirt",
     "levelRequirement": 3,
     "cost": 75,
     "filepath": "assets/images/shop/pinkShirt.png"
   },
   {
     "id": "purpleShorts",
-    "name": "purpleShorts.png",
+    "name": "Purple Shorts",
     "levelRequirement": 3,
     "cost": 65,
     "filepath": "assets/images/shop/purpleShorts.png"
   },
   {
     "id": "redShorts",
-    "name": "redShorts.png",
+    "name": "Red Shorts",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/redShorts.png"
   },
   {
     "id": "redShirt",
-    "name": "redShirt.png",
+    "name": "Red Shirt",
     "levelRequirement": 3,
     "cost": 75,
     "filepath": "assets/images/shop/redShirt.png"
   },
   {
     "id": "soccerBall",
-    "name": "soccerBall.png",
+    "name": "Soccer Ball",
     "levelRequirement": 1,
     "cost": 40,
     "filepath": "assets/images/shop/soccerBall.png"
   },
   {
     "id": "tabletennis",
-    "name": "tabletennis.png",
+    "name": "Table Tennis",
     "levelRequirement": 2,
     "cost": 50,
     "filepath": "assets/images/shop/tabletennis.png"
   },
   {
     "id": "videoGame",
-    "name": "videoGame.png",
+    "name": "Video Game",
     "levelRequirement": 4,
     "cost": 250,
     "filepath": "assets/images/shop/videoGame.png"
   },
   {
     "id": "volleyball",
-    "name": "volleyball.png",
+    "name": "Volleyball",
     "levelRequirement": 1,
     "cost": 50,
     "filepath": "assets/images/shop/volleyball.png"
   },
   {
     "id": "yellowShorts",
-    "name": "yellowShorts.png",
+    "name": "Yellow Shorts",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/yellowShorts.png"
   },
   {
     "id": "yellowShirt",
-    "name": "yellowShirt.png",
+    "name": "Yellow Shirt",
     "levelRequirement": 3,
     "cost": 75,
     "filepath": "assets/images/shop/yellowShirt.png"
   },
   {
     "id": "basketBall",
-    "name": "basketBall.png",
+    "name": "Basketball",
     "levelRequirement": 1,
     "cost": 40,
     "filepath": "assets/images/shop/basketBall.png"
   },
   {
     "id": "blueSkirt",
-    "name": "blueSkirt.png",
+    "name": "Blue Skirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/blueSkirt.png"
   },
   {
     "id": "brightBlueShirt",
-    "name": "brightBlueShirt.png",
+    "name": "Bright Blue Shirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/brightBlueShirt.png"
   },
   {
     "id": "crown",
-    "name": "crown.png",
+    "name": "Crown",
     "levelRequirement": 4,
     "cost": 100,
     "filepath": "assets/images/shop/crown.png"
   },
   {
     "id": "dog",
-    "name": "dog.png",
+    "name": "Dog",
     "levelRequirement": 1,
     "cost": 30,
     "filepath": "assets/images/shop/dog.png"
   },
   {
     "id": "dressHat",
-    "name": "dressHat.png",
+    "name": "Dress Hat",
     "levelRequirement": 1,
     "cost": 45,
     "filepath": "assets/images/shop/dressHat.png"
   },
   {
     "id": "glasses",
-    "name": "glasses.png",
+    "name": "Glasses",
     "levelRequirement": 1,
     "cost": 25,
     "filepath": "assets/images/shop/glasses.png"
   },
   {
     "id": "greenShorts",
-    "name": "greenShorts.png",
+    "name": "Green Shorts",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/greenShorts.png"
   },
   {
     "id": "greenSkirt",
-    "name": "greenSkirt.png",
+    "name": "Green Skirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/greenSkirt.png"
   },
   {
     "id": "lightPinkShirt",
-    "name": "lightPinkShirt.png",
+    "name": "Light Pink Shirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/lightPinkShirt.png"
   },
   {
     "id": "mintShirt",
-    "name": "mintShirt.png",
+    "name": "Mint Shirt",
     "levelRequirement": 3,
     "cost": 75,
     "filepath": "assets/images/shop/mintShirt.png"
   },
   {
     "id": "paint",
-    "name": "paint.png",
+    "name": "Paint",
     "levelRequirement": 4,
     "cost": 200,
     "filepath": "assets/images/shop/paint.png"
   },
   {
     "id": "pinkSkirt",
-    "name": "pinkSkirt.png",
+    "name": "Pink Skirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/pinkSkirt.png"
   },
   {
     "id": "purpleShirt",
-    "name": "purpleShirt.png",
+    "name": "Purple Shirt",
     "levelRequirement": 3,
     "cost": 75,
     "filepath": "assets/images/shop/purpleShirt.png"
   },
   {
     "id": "sunHat",
-    "name": "sunHat.png",
+    "name": "Sun Hat",
     "levelRequirement": 1,
     "cost": 45,
     "filepath": "assets/images/shop/sunHat.png"
   },
   {
     "id": "tealSkirt",
-    "name": "tealSkirt.png",
+    "name": "Teal Skirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/tealSkirt.png"
   },
   {
     "id": "topHat",
-    "name": "topHat.png",
+    "name": "Top Hat",
     "levelRequirement": 1,
     "cost": 45,
     "filepath": "assets/images/shop/topHat.png"
   },
   {
     "id": "yellowSkirt",
-    "name": "yellowSkirt.png",
+    "name": "Yellow Skirt",
     "levelRequirement": 2,
     "cost": 60,
     "filepath": "assets/images/shop/yellowSkirt.png"

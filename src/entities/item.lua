@@ -43,37 +43,112 @@ end
 
 -- Draw item with price and level information
 function Item:drawWithInfo(x, y, userLevel, money)
-    -- Draw the base item
-    self:draw(x, y)
+    -- Coordinates for the right edge of the shop container
+    local containerRightX = 20 + 467  -- Adjust if your container changes
+
+    local scale = 1
+    local itemWidth = self.image:getWidth()
+    local itemHeight = self.image:getHeight()
+
+    -- Draw the item image (left side)
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.draw(self.image, x, y, 0, scale, scale)
+
+    -- Draw the item name to the right of the image
+    local nameOffset = 10    -- gap after the image
+    local nameX = x + itemWidth + nameOffset
+    local nameY = y
     
-    -- Draw additional information
     local font = love.graphics.newFont(Constants.FONT_PATH, 16)
     love.graphics.setFont(font)
-    
-    if not self.purchased then
-        -- Draw cost
-        love.graphics.setColor(1, 0, 0)  -- Red
-        love.graphics.print("$" .. self.cost, x, y + self.image:getHeight() + 25)
-        
-        -- Draw level requirement
-        love.graphics.print("Lvl: " .. self.levelRequirement, x, y + self.image:getHeight() + 5)
-        
-        -- If level requirement not met, draw a lock
-        if userLevel < self.levelRequirement then
-            love.graphics.setColor(0, 0, 0, 0.7)  -- Semi-transparent black
-            love.graphics.rectangle("fill", x, y, self.image:getWidth(), self.image:getHeight())
-            
-            -- Draw lock icon
-            love.graphics.setColor(1, 1, 0)  -- Yellow
-            love.graphics.rectangle("fill", x + self.image:getWidth()/2 - 10, 
-                                     y + self.image:getHeight()/2 - 10, 20, 20)
-        end
-    else
-        -- Draw "Owned" text
+    love.graphics.print(self.name, nameX, nameY)
+
+    -- Prepare cost/level text
+    local costText = "$" .. self.cost
+    local levelText = "Lvl: " .. self.levelRequirement
+
+    -- Measure their text widths
+    local costTextWidth = font:getWidth(costText)
+    local levelTextWidth = font:getWidth(levelText)
+
+    -- We'll place them on the same baseline as the item name
+    local textY = y
+
+    -- Right-align with a little padding from the container edge
+    local rightPadding = 15
+    local costX = containerRightX - rightPadding - costTextWidth
+
+    -- We'll put the level requirement to the left of cost
+    local gapBetween = 20
+    local levelX = costX - gapBetween - levelTextWidth
+
+    if self.purchased then
+        ----------------------------------------------------------------
+        -- ALREADY OWNED
+        ----------------------------------------------------------------
+        -- Replace cost text with "Owned"
+        costText = "Owned"
+        costTextWidth = font:getWidth(costText)
+        costX = containerRightX - rightPadding - costTextWidth
+
+        -- Draw the "Owned" text in green
         love.graphics.setColor(0, 1, 0)  -- Green
-        love.graphics.print("Owned", x, y + self.image:getHeight() + 5)
+        love.graphics.print(costText, costX, textY)
+
+        -- Level requirement is still displayed in normal color
+        love.graphics.setColor(1, 1, 1)
+        love.graphics.print(levelText, levelX, textY)
+
+    else
+        ----------------------------------------------------------------
+        -- NOT YET OWNED
+        ----------------------------------------------------------------
+        local canAfford = (money >= self.cost)
+        local meetsLevel = (userLevel >= self.levelRequirement)
+
+        -- If user can’t afford or doesn’t meet level, show cost in red
+        if (not canAfford) or (not meetsLevel) then
+            love.graphics.setColor(1, 0, 0) -- Red
+        else
+            love.graphics.setColor(1, 1, 1) -- White
+        end
+        love.graphics.print(costText, costX, textY)
+
+        -- Draw level requirement in white
+        love.graphics.setColor(1, 1, 1)
+        love.graphics.print(levelText, levelX, textY)
+
+        -- If user level is too low, draw a lock overlay
+        if not meetsLevel then
+            -- Dark overlay on the item
+            love.graphics.setColor(0, 0, 0, 0.7)
+            love.graphics.rectangle("fill", x, y, itemWidth, itemHeight)
+
+            -- Reset color to full white so the lock image isn’t tinted
+            love.graphics.setColor(1, 1, 1, 1)
+
+            -- Drawing lock
+            local lockIcon = love.graphics.newImage("assets/images/shop/lock.png")
+            -- Let's pick a scale factor (0.3 = 30% size)
+            local scale = 0.2
+
+            -- Compute the scaled width/height
+            local lockScaledWidth = lockIcon:getWidth() * scale
+            local lockScaledHeight = lockIcon:getHeight() * scale
+
+            -- Center it on the item image
+            local lockX = x + (itemWidth / 2) - (lockScaledWidth / 2)
+            local lockY = y + (itemHeight / 2) - (lockScaledHeight / 2)
+
+            -- Draw with the chosen scale
+            love.graphics.draw(lockIcon, lockX, lockY, 0, scale, scale)
+        end
     end
+
+    -- Reset color
+    love.graphics.setColor(1, 1, 1, 1)
 end
+
 
 -- Check if item can be purchased
 function Item:canPurchase(userLevel, money)
