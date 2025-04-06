@@ -1,22 +1,22 @@
 {
-  "level":2,
-  "streak":0,
-  "name":"",
   "items":[{
-      "purchased":true,
-      "id":"cat"
+      "id":"cat",
+      "purchased":true
     },{
-      "purchased":true,
-      "id":"book"
+      "id":"book",
+      "purchased":true
     }],
   "tasks":[],
   "dueDate":{
-    "year":2025,
-    "month":4,
     "day":6,
     "hour":0,
-    "minute":0
+    "minute":0,
+    "year":2025,
+    "month":4
   },
   "money":0,
-  "xp":0
+  "xp":0,
+  "level":2,
+  "streak":0,
+  "name":""
 }
