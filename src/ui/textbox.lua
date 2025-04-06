@@ -131,14 +131,10 @@ function TextBox:keypressed(key)
             self:updateDisplayText()
         end
     elseif key == "return" or key == "kpenter" then
-        -- Handle Enter key - submit the text
-        if self.type == "TASK" and #self.text > 0 then
-            self:createTask()
-        end
-        
         if self.onSubmit then
             self.onSubmit(self.text)
         end
+        self:setText("")
     elseif key == "escape" then
         -- Deselect the textbox
         self.selected = false
@@ -156,30 +152,6 @@ function TextBox:keypressed(key)
             self:updateDisplayText()
         end
     end
-end
-
--- Create a task from textbox content
-function TextBox:createTask()
-    if #self.text == 0 then
-        return false, "Task name cannot be empty"
-    end
-    
-    -- Create a new task
-    local newTask = Task.new(self.text)
-    if not newTask then
-        return false, "Failed to create task"
-    end
-    
-    -- Add to active tasks
-    local success, err = Task.addToActiveTasks(newTask)
-    if not success then
-        return false, err
-    end
-    
-    -- Clear the textbox
-    self:setText("")
-    
-    return true
 end
 
 -- Set a callback function for when Enter is pressed

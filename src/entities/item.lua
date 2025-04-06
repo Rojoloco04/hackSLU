@@ -79,7 +79,7 @@ function Item:drawWithInfo(x, y, userLevel, money)
     local costX = containerRightX - rightPadding - costTextWidth
 
     -- We'll put the level requirement to the left of cost
-    local gapBetween = 20
+    local gapBetween = 30
     local levelX = costX - gapBetween - levelTextWidth
 
     if self.purchased then

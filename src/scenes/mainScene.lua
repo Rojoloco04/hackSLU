@@ -6,6 +6,7 @@ local Colors = require("src.config.colors")
 local ColorUtils = require("src.utils.colorUtils")
 local TaskManager = require("src.managers.taskManager")
 local AnimationManager = require("src.managers.animationManager")
+local UserManager = require("src.managers.userManager")
 
 local MainScene = {}
 
@@ -32,6 +33,9 @@ function MainScene.draw()
     -- Draw character in the center
     AnimationManager.draw((Constants.WINDOW_WIDTH / 2) - 100, 150)
     
+    -- Draw stats
+    UserManager.drawStats()
+
     -- Draw task management interface
     TaskManager.draw()
 end

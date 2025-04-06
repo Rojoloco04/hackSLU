@@ -23,13 +23,21 @@ end
 -- Write user data to JSON file
 function DataService.writeUserData(data)
     local file = io.open(Constants.USER_DATA_FILE, "w")
-    if not file then 
+    if not file then
         error("Failed to open user data file for writing")
-        return false 
+        return false
     end
     
     file:write(json.encode(data, { indent = true }))
     file:close()
+
+    -- Immediately re-open for a quick read to confirm the data
+    local confirmFile = io.open(Constants.USER_DATA_FILE, "r")
+    local content = confirmFile:read("*a") or ""
+    confirmFile:close()
+
+    print("DEBUG: File after write:\n" .. content)
+
     return true
 end
 

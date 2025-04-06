@@ -14,7 +14,7 @@ local Navigation = {
         { name = "Home", scene = "Main" },
         { name = "Shop", scene = "Shop" },
         { name = "Resources", scene = "Resources" },
-        { name = "Activity", scene = "Activities" }
+        { name = "Activities", scene = "Activities" }
     },
     
     -- Callback when page changes

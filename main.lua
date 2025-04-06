@@ -89,9 +89,6 @@ function love.draw()
     
     -- Draw navigation bar
     Navigation.draw()
-    
-    -- Draw player stats
-    UserManager.drawStats()
 end
 
 -- Handle mouse press

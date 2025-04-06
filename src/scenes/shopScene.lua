@@ -4,6 +4,7 @@
 local Constants = require("src.config.constants")
 local ShopManager = require("src.managers.shopManager")
 local AnimationManager = require("src.managers.animationManager")
+local UserManager = require("src.managers.userManager")
 
 local ShopScene = {}
 
@@ -33,6 +34,9 @@ function ShopScene.draw()
     -- Draw character in the center
     AnimationManager.draw((Constants.WINDOW_WIDTH / 2) - 100, 150)
     
+    -- Draw stats
+    UserManager.drawStats()
+
     -- Draw shop interface
     ShopManager.draw()
 end

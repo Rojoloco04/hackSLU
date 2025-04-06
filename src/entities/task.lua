@@ -45,13 +45,11 @@ function Task:complete()
     if taskIndex then
         table.remove(data.tasks, taskIndex)
         self.completed = true
-        
+        DataService.writeUserData(data)
+
         -- Award XP and money for completing task
         UserManager.addXP(Constants.TASK_COMPLETE_XP)
         UserManager.updateMoney("add", Constants.TASK_COMPLETE_MONEY)
-        
-        -- Save changes
-        return DataService.writeUserData(data)
     else
         return false, "Task not found"
     end

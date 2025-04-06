@@ -108,7 +108,7 @@ end
 -- Draw the add task button
 function TaskManager.drawAddButton()
     -- Draw button circle
-    ColorUtils.setColor(1, 1, 1)
+    love.graphics.setColor(1, 1, 1)
     love.graphics.circle(
         "fill", 
         TaskManager.buttonX, 
@@ -117,7 +117,7 @@ function TaskManager.drawAddButton()
     )
     
     -- Draw plus sign
-    ColorUtils.setColor(0, 0, 0)
+    love.graphics.setColor(0, 0, 0)
     -- Vertical line
     love.graphics.rectangle(
         "fill", 

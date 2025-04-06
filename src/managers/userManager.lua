@@ -52,7 +52,6 @@ function UserManager.addXP(amount)
 
     local data = DataService.readUserData()
     data.xp = data.xp + amount
-    
     -- Check if leveling up is needed
     UserManager.checkLevelUp(data)
     
