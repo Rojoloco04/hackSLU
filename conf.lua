@@ -4,7 +4,7 @@
 function love.conf(t)
     -- Application identity
     t.identity = "BillikenBalance"
-    t.version = "11.3"
+    t.version = "v0.1-beta"
     t.console = false
     
     -- Window configuration
